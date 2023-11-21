@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.shop.dao.UserMapper">
+    <!-- User 테이블 가져오기 -->
+    <select id="getUserList" resultType="com.example.shop.dto.UserVo">
+        SELECT *
+        FROM User
+    </select>
+
+    <!-- 회원가입 -->
+    <insert id="insertUser">
+        INSERT INTO User
+            (name, username, email, password, address, phone, website, company)
+        VALUES
+            (#{name}, #{username}, #{email}, #{password}, #{address}, #{phone}, #{website}, #{company})
+    </insert>
+
+    <!-- 회원 정보 가져오기 -->
+    <select id="getUserByUserid" resultType="com.example.shop.dto.UserVo">
+        SELECT *
+        FROM User
+        WHERE userid = #{userid}
+    </select>
+
+    <select id="aleadynews" resultType="int">
+        select count(*) from newsletter where email=#{param1}
+    </select>
+
+    <insert id="subcribenews">
+        insert into newsletter (email) values (#{param1})
+
+    </insert>
+
+    <select id="getUserById" resultType="com.example.shop.dto.UserVo">
+        SELECT *
+        FROM User
+        WHERE id = #{id}
+    </select>
+
+    <!-- 회원정보 수정 -->
+    <update id="updateUser">
+        UPDATE User
+        SET name = #{name},
+            username = #{username},
+            email = #{email},
+            password = #{password},
+            address = #{address},
+            phone = #{phone},
+            website = #{website},
+            company = #{company}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 탈퇴 -->
+    <delete id="deleteUser">
+        DELETE
+        FROM User
+        WHERE id = #{id}
+    </delete>
+
+    <select id="checkId" resultType="int">
+        select count(*) from user where userid=#{param1}
+    </select>
+
+    <select id="checkmail" resultType="int">
+        select count(*) from user where email=#{param1}
+    </select>
+
+    <select id="checktel" resultType="int">
+        select count(*) from user where phone=#{param1}
+    </select>
+
+    <insert id="makeUser">
+        insert into user (name,userid,email,password,address,addressnum,phone,detail_address)
+        values (#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8})
+    </insert>
+
+    <select id="getOrderList" resultType="com.example.shop.dto.OrderList">
+        select * from orderlist where userid=#{param1}
+        order by orderdate desc
+            LIMIT #{param2}, #{param3}
+    </select>
+
+
+    <select id="gettotalorderct" resultType="int">
+    select count(*) from orderlist where userid=#{param1}
+                                     and delivery_status !='환불'
+        and delivery_status !='구매취소'
+
+    </select>
+
+    <select id="getOrderbyUid" resultType="com.example.shop.dto.OrderList">
+        select * from orderlist where merchant_uid=#{param1}
+    </select>
+
+    <insert id="cancelOrder">
+        insert into order_cancel(merchant_uid,userid,amount,canceldate)
+        values (#{param1},#{param2},#{param3},#{param4})
+    </insert>
+
+    <update id="cancelOrder2">
+        update orderlist set delivery_status =#{param1} where merchant_uid=#{param2}
+    </update>
+
+    <select id="getprice" resultType="int">
+        select (pd_price -(pd_price*pd_sale_percent/100)) from product where id=#{param1}
+    </select>
+
+    <select id="getOrderSearch" resultType="com.example.shop.dto.OrderList">
+        SELECT *
+        FROM orderlist
+        WHERE (userid = #{param1} AND orderdate = #{param2})
+        ORDER BY orderdate DESC
+            LIMIT #{param3}, #{param4}
+    </select>
+    <select id="getOrderSearchct" resultType="int">
+        SELECT count(*)
+        FROM orderlist
+        WHERE (userid = #{param1} AND orderdate = #{param2})
+        ORDER BY orderdate DESC
+    </select>
+
+    <insert id="insertreview">
+        insert into rating (pd_id,merchant_uid,id,review,rate,reviewdate) values(
+      #{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
+
+    </insert>
+
+    <select id="getratect" resultType="int">
+        select count(*) from rating where pd_id=#{param1}
+    </select>
+
+    <select id="getidwithname" resultType="int">
+        select id from product where pd_name=#{param1}
+    </select>
+
+    <select id="isaleadyrate" resultType="int">
+        select count(*) from rating where pd_id=#{param1} and id=#{param2}
+    </select>
+
+    <select id="getPd_rate" resultType="int">
+        SELECT ROUND(SUM(rate) / COUNT(*), 0) AS rounded_average
+        FROM rating
+        WHERE pd_id = #{param1};
+    </select>
+
+    <update id="updaterate">
+        update product set rating =#{param1} where id=#{param2}
+    </update>
+
+    <select id="getSingleReview" resultType="com.example.shop.dto.Review">
+        select * from rating where pd_id=#{param1}
+    </select>
+
+    <select id="getUseridWithLoginid" resultType="String">
+        select userid from user where id=#{parma1}
+    </select>
+
+    <select id="getUserpwWithLoginid" resultType="String">
+        select password from user where id=#{param1}
+    </select>
+
+    <update id="updateAddr" >
+        update user set address=#{param1}, detail_address=#{param2}, addressnum=#{param3} where id=#{param4}
+    </update>
+
+</mapper>

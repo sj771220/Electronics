@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="kr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>eElectronics - HTML eCommerce Template</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/rating.css">
+
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function showModal4(uid) {
+
+
+            $.ajax({
+                url: 'checkpd', // 컨트롤러의 URL로 변경하세요.
+                method: 'POST',
+                data: { uid: uid },
+                success: function(data) {
+                    // select 요소 초기화
+                    $('#ratingSelect').empty();
+
+                    // 데이터를 가지고 option을 생성하여 select에 추가
+                    data.forEach(function(item) {
+                        $('#ratingSelect').append($('<option>', {
+                            value: item,
+                            text: item
+                        }));
+                    });
+                    $("#ratinguid").val(uid);
+                    $("#modal4").modal("show");
+                },
+                error: function(error) {
+                    console.error('AJAX 요청 오류:', error);
+                }
+            });
+        }
+        function seeDetail(uid){
+
+            var element = $("#" + uid);
+            if (element.css("display") === "block") {
+                element.css("display", "none");
+            } else {
+                element.css("display", "block");
+            }
+
+        }
+
+        function cancelorder (uid){
+            Swal.fire({
+                title: '구매를 취소하시겠습니까?',
+                text: '구매를 취소할 경우 같은 기존 주문 내역이 사라집니다.',
+                icon: 'warning',
+
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '확인',
+                cancelButtonText: '취소',
+                width: '500px',
+            }).then(result => {
+                if (result.isConfirmed) {
+
+                    Swal.fire({
+                        title: '신청 완료',
+                        text: '구매 취소 신청이 완료되었습니다. 1~3 영업일 이내 환불 및 취소처리가 진행됩니다.',
+                        icon: 'success',
+                        width: '500px',
+
+                    }).then(result=>{
+                        window.location.href = '/cancelOrder/'+uid;
+                    });
+
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+
+<div class="header-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="user-menu">
+                    <ul>
+
+                        <div class="dropdown">
+                            <li><a href="#"><i class="fa fa-user"></i> 마이 페이지 </a></li>
+                            <div class="dropdown-content">
+                                <a href="/orderlist/1">주문 목록</a>
+                                <a href="/userInfo">회원 정보</a>
+                            </div>
+                        </div>
+
+                        <li><a href="/cart"><i class="fa fa-user"></i> 나의 카트 </a></li>
+                        <li><a href="/checkout"><i class="fa fa-user"></i> 즉시 결제 </a></li>
+                        <li th:if="${islogin==null}"><a href="/login"><i class="fa fa-user"></i> 로그인 </a></li>
+                        <li th:if="${islogin!=null}">
+                            <form th:action="@{/logout}" method="post">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                <button type="submit" style="border: none; background: transparent; color: #888888">
+                                    <i class="fa fa-user"></i> 로그아웃
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div> <!-- End header area -->
+
+<div class="site-branding-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="logo">
+                    <h1><a href="/main">e<span>Electronics</span></a></h1>
+                </div>
+            </div>
+
+            <div class="col-sm-4" >
+                <div class="mainsearch">
+                    <form action="/seesa" method="get">
+                        <input type="text" name="keyword" placeholder="원하시는 상품을 검색해보세요." class="searchForm">
+                        <input type="hidden" name="page" placeholder="Page" value="1">
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+            </div>
+            <th:block th:if="${islogin}!=null">
+                <div class="col-sm-4">
+                    <div class="shopping-item">
+                        <a href="/cart"> <span style="font-size: 14px"> 장바구니 </span> - <span class="cart-amunt" th:text="'￦'+${totalprice}"></span> <i class="fa fa-shopping-cart"></i> <span class="product-count" th:text="${totalcnt}"></span></a>
+                    </div>
+                </div>
+            </th:block>
+
+        </div>
+    </div>
+</div> <!-- End site branding area -->
+
+<div class="mainmenu-area">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li ><a href="/main">홈페이지</a></li>
+                    <li><a href="/shop/1">상품 목록</a></li>
+                    <li class="dropdown">
+                        <a href="#">카테고리</a>
+                        <div class="dropdown-content">
+                            <a href="/category/Phone/1">휴대폰</a>
+                            <a href="/category/Laptop/1">노트북</a>
+                            <a href="/category/Tv/1">티비</a>
+                            <a href="/category/Game/1">게임기기</a>
+                        </div>
+                    </li>
+                    <li><a href="">상품 상세</a></li>
+                    <li><a href="/cart">장바구니</a></li>
+                    <li><a href="/checkout">즉시결제</a></li>
+                    <li class="active"><a href="">주문 목록</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div> <!-- End mainmenu area -->
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>주문 목록</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="single-product-area">
+    <div class="mypagesearch">
+        <form action="/orderlistSearch" method="post">
+            <input type="date" name="orderdate" placeholder="주문 날짜로 검색">
+            <input type="text" readonly placeholder="주문 날짜로 검색" class="searchForm">
+            <input type="hidden" name="page" placeholder="Page" value="1">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+
+<!--            <script>-->
+<!--                function redirectToMain(marchant_uid) {-->
+<!--                    window.location.href = '/main/' + marchant_uid;-->
+<!--                }-->
+<!--            </script>-->
+
+            <th:block th:each="order : ${list}">
+                <div style="width: 700px; padding: 20px; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; margin: 0 auto;">
+                    <table style="width: 100%; border-collapse: collapse;  ">
+                        <tr>
+                            <td style="width: 75%; padding: 10px; border: 0px">
+                                <p style="font-size: 18px;" th:text="'주문 일자 - '+${order.orderdate}+' : '+${order.delivery_status}"></p>
+                                <p th:text="'상품명: ' + ${order.pd_nameex}"></p>
+                                <p th:text="'결제 금액: ￦' + ${order.kr_price}"></p>
+                                <p th:text="'수량: '+${order.merchant_count}+'개'"></p>
+                            </td>
+                            <td style="width: 25%; padding: 10px; border: 0px; text-align: right ">
+
+                                <th:block th:if="${order.delivery_status != '배송완료' && order.delivery_status != '취소완료' && order.delivery_status != '취소신청' && order.delivery_status != '환불신청' && order.delivery_status != '환불완료'}">
+                                <button type="button" class="page-button" th:uid="${order.merchant_uid}" th:onclick="cancelorder(this.getAttribute('uid'))" th:text="구매취소"></button>
+                                <br>
+                              </th:block>
+
+
+                                <th:block th:if="${order.delivery_status=='배송완료'}">
+                                    <button type="button" class="page-button" th:uid="${order.merchant_uid}" th:onclick="cancelorder(this.getAttribute('uid'))" th:text="환불신청"></button>
+                                    <button class="page-button" id="showModalLink4" th:uid="${order.merchant_uid}" th:onclick="showModal4(this.getAttribute('uid'))">평가하기</button>
+                                    <br>
+                                </th:block>
+
+
+                                <button type="button" class="page-button" th:uid="${order.merchant_uid}" th:onclick="seeDetail(this.getAttribute('uid'))" th:text="상세보기"></button>
+                                <br>
+
+                            </td>
+                        </tr>
+
+                        <table th:id="${order.merchant_uid}" style="display: none;width: 70%; margin: 0 auto">
+
+                        <tr style="width: 50%;">
+                            <th style="text-align: center;width: 30%;"> 구매 품목 </th>
+                            <th style="text-align: center;width: 100%;"> 구매 수량 </th>
+                            <th style="text-align: center;width: 100%;"> 가격 </th>
+                        </tr>
+                        <tr th:each="dto:${order.pdlist}" style="text-align: center;width: 50%; ">
+                            <td style="width: 40%;"> <a th:href="'/single/' + ${dto.pd_id}" th:text="${dto.pd_name}"></a> </td>
+                            <td th:text="${dto.pd_count}" style="width: 30%;text-align: center;"> </td>
+                            <td th:text="'￦'+${dto.kr_price}" style="width: 30%;text-align: center;"></td>
+
+
+                        </tr>
+                        </table>
+
+
+                    </table>
+
+                </div>
+                <br>
+                <br>
+            </th:block>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-pagination text-center">
+                    <nav>
+                        <ul class="pagination">
+
+                            <th:block th:if="${orderdate==null}">
+
+                            <th:block th:each="i : ${#numbers.sequence(1, n)}">
+                                <li style="border: 1px; solid-color: black">
+                                    <a th:href="@{/orderlist/{id}(id=${i})}" th:text="${i}" style="font-size: 20px;"></a>
+                                </li>
+                            </th:block>
+
+                            </th:block>
+
+                            <th:block th:if="${orderdate}!=null">
+                                <th:block th:each="i : ${#numbers.sequence(1, n)}">
+                                    <li style="border: 1px; solid-color: black">
+                                        <a th:href="@{/orderlistSearch/{orderdate}/{page}(orderdate=${orderdate}, page=${i})}" th:text="${i}" style="font-size: 20px;"></a>
+
+                                    </li>
+                                </th:block>
+
+                            </th:block>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</div>
+
+<div class="modal" id="modal4" role="dialog" aria-labelledby="remoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 450px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel4">리뷰 작성</h4>
+            </div>
+            <div class="modal-body" style="max-height: 300px; overflow-y: auto;">
+                <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-4" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-togglebutton="false">
+                    <div role="content">
+                        <div class="widget-body">
+                            <form name="myform" id="myform" method="post" action="/rating">
+                            <h2>Reviews</h2>
+                            <div class="submit-review">
+
+                                <p style="font-size: 15px; color: #666666 ">리뷰를 남길 제품을 선택해주세요</p>
+                                <select name="ratingSelect" id="ratingSelect" style="width: 50%; margin-bottom: 20px;">
+
+                                </select>
+                                <input type="hidden" name="uid" id="ratinguid">
+                                <div class="rating-chooser">
+                                    <p>평점</p>
+                                    <fieldset>
+                                        <input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
+                                        <input type="radio" name="rating" value="4" id="rate2"><label for="rate2">⭐</label>
+                                        <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
+                                        <input type="radio" name="rating" value="2" id="rate4"><label for="rate4">⭐</label>
+                                        <input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
+                                    </fieldset>
+
+                                </div>
+                                <p><label>구매 후기</label> <textarea name="review" id="" cols="30" rows="10" required></textarea></p>
+                                <p><input type="submit" value="Submit"></p>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer-top-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-about-us">
+                    <h2>e<span>Electronics</span></h2>
+                    <p>상호명 및 호스팅 서비스 제공 : 임시이름 <br>
+                        대표이사 : 박선우 <br>
+                        서울시 강북구 덕릉로 2222<br>
+                        사업자 등록번호 : 111-1111-2222<br>
+                        통신판매업신고 : 999-8882-2888</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-menu">
+                    <h2 class="footer-wid-title">User Navigation </h2>
+                    <ul>
+                        <li><a href="/orderlist/1">Orderlist</a></li>
+                        <li><a href="/userInfo">Mypage</a></li>
+                        <li><a href="/cart">My Cart</a></li>
+                        <li><a href="/main">Front page</a></li>
+                        <li><a href="/checkout">Checkout</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-menu">
+                    <h2 class="footer-wid-title">Categories</h2>
+                    <ul>
+                        <li><a href="/category/Phone/1">Mobile Phone</a></li>
+                        <li><a href="/category/Laptop/1">Laptop Pc</a></li>
+                        <li><a href="/category/Tv/1">LED TV</a></li>
+                        <li><a href="/category/Game/1">Game Device</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-newsletter">
+                    <h2 class="footer-wid-title">Newsletter</h2>
+                    <p>뉴스레터를 구독하여 새로운 상품 혹은 할인 행사 소식을 받아보세요.</p>
+                    <div class="newsletter-form">
+                        <form action="/subcribe" method="post">
+                            <input type="email" placeholder="소식을 받을 이메일을 입력해주세요." name="email" required>
+                            <input type="submit" value="구독하기">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End footer top area -->
+
+<div class="footer-bottom-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="copyright">
+                    <p>&copy; 2015 eElectronics. All Rights Reserved. Coded with <i class="fa fa-heart"></i> by <a href="http://wpexpand.com" target="_blank">WP Expand</a> // 해당 페이지의 부트스트랩 템플릿에 구현된 코드입니다.  </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div> <!-- End footer bottom area -->
+
+<!-- Latest jQuery form server -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap JS form CDN -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-- jQuery sticky menu -->
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/jquery.sticky.js"></script>
+
+<!-- jQuery easing -->
+<script src="/js/jquery.easing.1.3.min.js"></script>
+
+<!-- Main Script -->
+<script src="/js/main.js"></script>
+</body>
+</html>

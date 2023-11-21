@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    Swal.fire({
+      title: '회원가입 성공',  // Alert 제목
+      text: '고객님의 회원가입이 완료되었습니다. 페이지에서 로그인 해주세요.',  // Alert 내용
+      icon: 'success', // Alert 타입
+      confirmButtonText: '확인', // Confirm 버튼의 텍스트
+      allowOutsideClick: false, // Alert 외부 클릭으로 닫히는 것 방지
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href ="/login" // 이전 페이지로 이동
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

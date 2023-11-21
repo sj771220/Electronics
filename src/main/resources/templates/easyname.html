@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Swal.fire({
+            title: '최소/최대 수량을 넘을 수 없어요.',  // Alert 제목
+            text: '카트 물건의 최소 수량은 1개 ,\n최대 수량은 5개 입니다.',  // Alert 내용
+            icon: 'error', // Alert 타입
+            confirmButtonText: '확인', // Confirm 버튼의 텍스트
+            allowOutsideClick: false, // Alert 외부 클릭으로 닫히는 것 방지
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.history.go(-1); // 이전 페이지로 이동
+            }
+        });
+    });
+</script>
+</body>
+</html>

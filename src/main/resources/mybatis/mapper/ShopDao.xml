@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.shop.dao.ShopDao">
+
+
+    <select id="getBest" resultType="com.example.shop.dto.Product">
+
+    select * from product order by rating desc limit 5
+
+    </select>
+
+
+
+
+    <select id="getCnt" resultType="int">
+        select count(*) from product
+    </select>
+    
+    <select id="getProduct" resultType="com.example.shop.dto.Product">
+
+    select * from product where id=#{param1}
+
+    </select>
+
+    <select id="getCategoryList" resultType="com.example.shop.dto.Product">
+        select * from product where category=#{param1} Limit 3
+    </select>
+
+    <select id="topList" resultType="com.example.shop.dto.Product">
+        select * from product order by order_count desc Limit 3
+
+    </select>
+
+    <select id="viewList" resultType="com.example.shop.dto.Product">
+        select * from product order by view desc Limit 3
+    </select>
+    
+    <select id="ratingList" resultType="com.example.shop.dto.Product">
+        select * from product order by rating desc Limit 3
+    </select>
+
+    <update id="updateorder_count">
+        update product set order_count=order_count+#{param2} where id=#{param1}
+    </update>
+
+
+    <select id="findListPaging" resultType="com.example.shop.dto.Product">
+        SELECT * FROM product
+                          LIMIT #{startIndex}, #{pageSize}
+    </select>
+
+    <select id="getCategoryPaging" resultType="com.example.shop.dto.Product">
+        SELECT * FROM product where category=#{category}
+                          LIMIT #{startIndex}, #{pageSize}
+    </select>
+
+    <select id="getCategoryCnt" resultType="int">
+        SELECT count(*) from product where category =#{param1}
+
+    </select>
+    
+    <select id="aleadyInsert" resultType="int">
+        select count(*) from cart where userid=#{param1} and id=#{param2}
+
+    </select>
+
+    <insert id="insertCart">
+        insert into cart(userid,pd_count,id) values (#{param1},#{param2},#{param3})
+    </insert>
+
+    <update id="extraCart">
+        update cart set pd_count=pd_count+#{param1} where userid=#{param2} and id=#{param3}
+    </update>
+
+    <update id="minusInventory">
+        update product set inventory=inventory-#{param1} where id=#{param2}
+    </update>
+
+    <select id="getpdCnt" resultType="int">
+        select inventory from product where id=#{param1}
+    </select>
+
+    <select id="showCart1" resultType="com.example.shop.dto.Product">
+        select * from product where id=#{param1}
+    </select>
+
+    <select id="showCart2" resultType="com.example.shop.dto.Cart">
+        select c.userid, c.pd_count, c.id, p.pd_name, p.pd_price, p.pd_sale_percent, p.pd_img
+        from cart c join product p on c.id=p.id
+        where c.userid=#{param1}
+
+    </select>
+
+    <select id="searchKeyword" resultType="com.example.shop.dto.Product">
+        SELECT * FROM product
+        WHERE pd_name LIKE CONCAT('%', #{param}, '%')
+            LIMIT #{startIndex}, #{pageSize}
+    </select>
+
+    <delete id="removeCart">
+
+    delete from cart where userid=#{param1} and id=#{param2}
+
+    </delete>
+
+    <select id="searchCnt" resultType="int">
+        SELECT count(*) FROM product
+        WHERE pd_name LIKE CONCAT('%', #{param}, '%')
+    </select>
+
+    <update id="pluscart">
+        update cart set pd_count=pd_count+1 where userid=#{param1} and id=#{param2}
+    </update>
+
+    <update id="minuscart">
+        update cart set pd_count=pd_count-1 where userid=#{param1} and id=#{param2}
+    </update>
+
+    <update id="inventoryCart1">
+        update product set inventory=inventory-#{param1} where id=#{param2}
+    </update>
+
+    <update id="inventoryCart2">
+        update product set inventory=inventory+#{param1} where id=#{param2}
+    </update>
+
+    <select id="getUserInfo" resultType="com.example.shop.dto.UserVo">
+    select * from user where id=#{param1}
+
+    </select>
+
+    <insert id="checkoutFinish1">
+        insert into orderlist values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11})
+
+    </insert>
+
+    <insert id="checkoutFinish2">
+        insert into order_pd values (#{param1},#{param2},#{param3})
+    </insert>
+
+    <delete id="checkoutFinish3">
+        delete from cart where userid=#{param1}
+    </delete>
+
+
+    <update id="updateView">
+        update product set view=view+1 where id=#{param1}
+    </update>
+
+    <select id="getpd_name" resultType="String">
+        select pd_name from product where id=#{param1}
+    </select>
+
+    <select id="getorderPd" resultType="com.example.shop.dto.OrderPd">
+        select * from order_pd where merchant_uid=#{param1}
+    </select>
+
+</mapper>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="kr">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>eElectronics - HTML eCommerce Template</title>
+    
+    <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+    <![endif]-->
+
+  </head>
+  <body>
+   
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="user-menu">
+                        <ul>
+
+                            <div class="dropdown">
+                            <li><a href="#"><i class="fa fa-user"></i> 마이 페이지 </a></li>
+                                <div class="dropdown-content">
+                                    <a href="/orderlist/1">주문 목록</a>
+                                    <a href="/userInfo">회원 정보</a>
+                                </div>
+                            </div>
+
+                            <li><a href="/cart"><i class="fa fa-user"></i> 나의 카트 </a></li>
+                            <li><a href="/checkout"><i class="fa fa-user"></i> 즉시 결제 </a></li>
+                            <li th:if="${islogin==null}"><a href="/login"><i class="fa fa-user"></i> 로그인 </a></li>
+                            <li th:if="${islogin!=null}">
+                                <form th:action="@{/logout}" method="post">
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                    <button type="submit" style="border: none; background: transparent; color: #888888">
+                                        <i class="fa fa-user"></i> 로그아웃
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> <!-- End header area -->
+    
+    <div class="site-branding-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="logo">
+                        <h1><a href="/main">e<span>Electronics</span></a></h1>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" >
+                    <div class="mainsearch">
+                    <form action="/seesa" method="get">
+                        <input type="text" name="keyword" placeholder="원하시는 상품을 검색해보세요." class="searchForm">
+                        <input type="hidden" name="page" placeholder="Page" value="1">
+                        <input type="submit" value="Search">
+                    </form>
+                    </div>
+                </div>
+            <th:block th:if="${islogin}!=null">
+                <div class="col-sm-4">
+                    <div class="shopping-item">
+                        <a href="/cart"> <span style="font-size: 14px"> 장바구니 </span> - <span class="cart-amunt" th:text="'￦'+${totalprice}"></span> <i class="fa fa-shopping-cart"></i> <span class="product-count" th:text="${totalcnt}"></span></a>
+                    </div>
+                </div>
+            </th:block>
+
+            </div>
+        </div>
+    </div> <!-- End site branding area -->
+    
+    <div class="mainmenu-area">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div> 
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/main">홈페이지</a></li>
+                        <li><a href="/shop/1">상품 목록</a></li>
+                        <li class="dropdown">
+                            <a href="#">카테고리</a>
+                            <div class="dropdown-content">
+                                <a href="/category/Phone/1">휴대폰</a>
+                                <a href="/category/Laptop/1">노트북</a>
+                                <a href="/category/Tv/1">티비</a>
+                                <a href="/category/Game/1">게임기기</a>
+                            </div>
+                        </li>
+                        <li><a href="">상품 상세</a></li>
+                        <li><a href="/cart">장바구니</a></li>
+                        <li><a href="/checkout">즉시결제</a></li>
+                    </ul>
+                </div>  
+            </div>
+        </div>
+    </div> <!-- End mainmenu area -->
+    
+    <div class="slider-area">
+        <div class="zigzag-bottom"></div>
+        <div id="slide-list" class="carousel carousel-fade slide" data-ride="carousel">
+            
+            <div class="slide-bulletz">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="carousel-indicators slide-indicators">
+                                <li data-target="#slide-list" data-slide-to="0" class="active"></li>
+                                <li data-target="#slide-list" data-slide-to="1"></li>
+                                <li data-target="#slide-list" data-slide-to="2"></li>
+                            </ol>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <div class="single-slide">
+                        <div class="slide-bg slide-one"></div>
+                        <div class="slide-text-wrapper">
+                            <div class="slide-text">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-6">
+                                            <div class="slide-content">
+                                                <h3>최선의 서비스</h3>
+                                                <p> 전 품목 무료 배송 및 무료 반품 수거는 물론, </p>
+                                                <p> 출고되는 모든 상품에 대해 최고 수준의 품질 검사를 진행합니다.</p>
+                                                <p> 단순히 물건을 판매하는 것이 아닌 소비자를 위한 </p>
+                                                   <p> 최선의 서비스를 제공하겠습니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="single-slide">
+                        <div class="slide-bg slide-two"></div>
+                        <div class="slide-text-wrapper">
+                            <div class="slide-text">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-6">
+                                            <div class="slide-content">
+                                                <h3>강렬한 경험</h3>
+                                                <p> Electronics의 제품들과 함께할 당신의 일상에</p>
+                                                <p> 잊혀지지 않을 최고의 경험을 안길 수 있도록</p>
+                                                <p> 엄선된 관리로 최고의 품질을 약속드립니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="single-slide">
+                        <div class="slide-bg slide-three"></div>
+                        <div class="slide-text-wrapper">
+                            <div class="slide-text">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-6">
+                                            <div class="slide-content">
+                                                <h3>부담없는 가격</h3>
+                                                <p> 제조사 직접 계약의 최소한의 유통과정,</p>
+                                                <p> 소비자의 부담을 줄이기 위해 </p>
+                                                <p> 누구보다 저렴한 가격을 약속드립니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>        
+    </div> <!-- End slider area -->
+    
+    <div class="promo-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo">
+                        <i class="fa fa-refresh"></i>
+                        <p>30일 내 환불 보장</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo">
+                        <i class="fa fa-truck"></i>
+                        <p>완전 무료 배송</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo">
+                        <i class="fa fa-lock"></i>
+                        <p>안전 결제 서비스</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo">
+                        <i class="fa fa-gift"></i>
+                        <p>다양한 사은품</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End promo area -->
+
+    <div class="maincontent-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="latest-product">
+                        <h2 class="section-title">최고 인기</h2>
+                        <div class="product-carousel">
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img th:src="'/img/'+${product1.getPd_img()}" alt="">
+                                    <div class="product-hover">
+                                        <th:block>
+                                            <a th:href="'/addcart/' + ${product1.getId()}+'/1'" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> 바로 담기</a>
+                                            <a th:href="'/single/' + ${product1.getId()}" class="view-details-link"><i class="fa fa-link"></i> 상세 페이지</a>
+                                        </th:block>
+                                    </div>
+                                </div>
+
+                                <h2><a th:href="'/single/' + ${product1.getId()}"><th:block th:text="${product1.getPd_name()}"></th:block></a></h2>
+                                <div class="product-carousel-price">
+                                    <ins>￦<th:block th:text="${product1.kr_price}"></th:block></ins> <del>￦<th:block th:text="${product1.getPd_price()}"></th:block></del>
+                                </div>
+                            </div>
+
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img th:src="'/img/'+${product2.getPd_img()}" alt="">
+                                    <div class="product-hover">
+                                        <th:block>
+                                            <a th:href="'/addcart/' + ${product2.getId()}+'/1'" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> 바로 담기</a>
+                                            <a th:href="'/single/' + ${product2.getId()}" class="view-details-link"><i class="fa fa-link"></i> 상세 페이지</a>
+                                        </th:block>
+                                    </div>
+                                </div>
+
+                                <h2><a th:href="'/single/' + ${product2.getId()}"><th:block th:text="${product2.getPd_name()}"></th:block></a></h2>
+                                <div class="product-carousel-price">
+                                    <ins>￦<th:block th:text="${product2.kr_price}"></th:block></ins> <del>￦<th:block th:text="${product2.getPd_price()}"></th:block></del>
+                                </div>
+                            </div>
+
+
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img th:src="'/img/'+${product3.getPd_img()}" alt="">
+                                    <div class="product-hover">
+                                        <th:block>
+                                            <a th:href="'/addcart/' + ${product3.getId()}+'/1'" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> 바로 담기</a>
+                                            <a th:href="'/single/' + ${product3.getId()}" class="view-details-link"><i class="fa fa-link"></i> 상세 페이지</a>
+                                        </th:block>
+                                    </div>
+                                </div>
+
+                                <h2><a th:href="'/single/' + ${product3.getId()}"><th:block th:text="${product3.getPd_name()}"></th:block></a></h2>
+                                <div class="product-carousel-price">
+                                    <ins>￦<th:block th:text="${product3.kr_price}"></th:block></ins> <del>￦<th:block th:text="${product3.getPd_price()}"></th:block></del>
+                                </div>
+                            </div>
+
+
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img th:src="'/img/'+${product4.getPd_img()}" alt="">
+                                    <div class="product-hover">
+                                        <th:block>
+                                            <a th:href="'/addcart/' + ${product4.getId()}+'/1'" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> 바로 담기</a>
+                                            <a th:href="'/single/' + ${product4.getId()}" class="view-details-link"><i class="fa fa-link"></i> 상세 페이지</a>
+                                        </th:block>
+                                    </div>
+                                </div>
+
+                                <h2><a th:href="'/single/' + ${product4.getId()}"><th:block th:text="${product4.getPd_name()}"></th:block></a></h2>
+                                <div class="product-carousel-price">
+                                    <ins>￦<th:block th:text="${product4.kr_price}"></th:block></ins> <del>￦<th:block th:text="${product4.getPd_price()}"></th:block></del>
+                                </div>
+                            </div>
+
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img th:src="'/img/'+${product5.getPd_img()}" alt="">
+                                    <div class="product-hover">
+                                        <th:block>
+                                            <a th:href="'/addcart/' + ${product5.getId()}+'/1'" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> 바로 담기</a>
+                                            <a th:href="'/single/' + ${product5.getId()}" class="view-details-link"><i class="fa fa-link"></i> 상세 페이지</a>
+                                        </th:block>
+                                    </div>
+                                </div>
+
+                                <h2><a th:href="'/single/' + ${product5.getId()}"><th:block th:text="${product5.getPd_name()}"></th:block></a></h2>
+                                <div class="product-carousel-price">
+                                    <ins>￦<th:block th:text="${product5.kr_price}"></th:block></ins> <del>￦<th:block th:text="${product5.getPd_price()}"></th:block></del>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End main content area -->
+
+
+
+
+
+
+
+    <div class="brands-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="brand-wrapper">
+                        <h2 class="section-title">제휴 브랜드</h2>
+                        <div class="brand-list">
+                            <img src="/img/services_logo__1.jpg" alt="">
+                            <img src="/img/samsung.jpg" alt="">
+                            <img src="/img/apple.png" alt="" style="background-color: white">
+                            <img src="/img/lg.png" alt="" style="background-color: white">
+                            <img src="/img/services_logo__1.jpg" alt="">
+                            <img src="/img/samsung.jpg" alt="">
+                            <img src="/img/apple.png" alt="" style="background-color: white">
+                            <img src="/img/lg.png" alt="" style="background-color: white">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End brands area -->
+    
+    <div class="product-widget-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">판매량 Top 3</h2>
+                        <table>
+                            <tr th:each="product : ${toplist}">
+                                <td>
+
+                                    <div class="single-wid-product">
+                                        <a th:href="'/single/' + ${product.id}">
+                                            <img th:src="'/img/'+${product.pd_img}" alt="" class="product-thumb">
+                                        </a>
+                                        <h2><a th:href="'/single/' + ${product.id}" th:text="${product.pd_name}"></a></h2>
+                                        <div class="product-wid-rating">
+                                            <th:block th:each="i,iterStat : ${#numbers.sequence(1, product.rating)}">
+                                                <i class="fa fa-star"></i>
+                                            </th:block>
+                                        </div>
+                                        <div class="product-wid-price">
+                                           <ins th:text="'￦'+${product.kr_price}"> </ins>
+                                            <del th:text="'￦'+${product.pd_price}"></del>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">조회수 Top 3</h2>
+                        <table>
+                            <tr th:each="product : ${viewlist}">
+                                <td>
+                                    <div class="single-wid-product">
+                                        <a th:href="'/single/' + ${product.id}">
+                                            <img th:src="'/img/'+${product.pd_img}" alt="" class="product-thumb">
+                                        </a>
+                                        <h2><a th:href="'/single/' + ${product.id}" th:text="${product.pd_name}"></a></h2>
+                                        <div class="product-wid-rating">
+                                            <th:block th:each="i,iterStat : ${#numbers.sequence(1, product.rating)}">
+                                                <i class="fa fa-star"></i>
+                                            </th:block>
+                                        </div>
+                                        <div class="product-wid-price">
+                                            <ins th:text="'￦'+${product.kr_price}"> </ins>
+                                            <del th:text="'￦'+${product.pd_price}"></del>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">최고 평점 Top 3</h2>
+                        <table>
+                            <tr th:each="product : ${ratinglist}">
+                                <td>
+                                    <div class="single-wid-product">
+                                        <a th:href="'/single/' + ${product.id}">
+                                            <img th:src="'/img/'+${product.pd_img}" alt="" class="product-thumb">
+                                        </a>
+                                        <h2><a th:href="'/single/' + ${product.id}" th:text="${product.pd_name}"></a></h2>
+                                        <div class="product-wid-rating">
+                                            <th:block th:each="i,iterStat : ${#numbers.sequence(1, product.rating)}">
+                                                <i class="fa fa-star"></i>
+                                            </th:block>
+                                        </div>
+                                        <div class="product-wid-price">
+                                            <ins th:text="'￦'+${product.kr_price}"> </ins>
+                                            <del th:text="'￦'+${product.pd_price}"></del>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End product widget area -->
+
+    <div class="footer-top-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-about-us">
+                        <h2>e<span>Electronics</span></h2>
+                        <p>상호명 및 호스팅 서비스 제공 : 임시이름 <br>
+                            대표이사 : 박선우 <br>
+                            서울시 강북구 덕릉로 2222<br>
+                            사업자 등록번호 : 111-1111-2222<br>
+                            통신판매업신고 : 999-8882-2888</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-menu">
+                        <h2 class="footer-wid-title">User Navigation </h2>
+                        <ul>
+                            <li><a href="/orderlist/1">Orderlist</a></li>
+                            <li><a href="/userInfo">Mypage</a></li>
+                            <li><a href="/cart">My Cart</a></li>
+                            <li><a href="/main">Front page</a></li>
+                            <li><a href="/checkout">Checkout</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-menu">
+                        <h2 class="footer-wid-title">Categories</h2>
+                        <ul>
+                            <li><a href="/category/Phone/1">Mobile Phone</a></li>
+                            <li><a href="/category/Laptop/1">Laptop Pc</a></li>
+                            <li><a href="/category/Tv/1">LED TV</a></li>
+                            <li><a href="/category/Game/1">Game Device</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-newsletter">
+                        <h2 class="footer-wid-title">Newsletter</h2>
+                        <p>뉴스레터를 구독하여 새로운 상품 혹은 할인 행사 소식을 받아보세요.</p>
+                        <div class="newsletter-form">
+                            <form action="/subcribe" method="post">
+                                <input type="email" placeholder="소식을 받을 이메일을 입력해주세요." name="email" required>
+                                <input type="submit" value="구독하기">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End footer top area -->
+
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="copyright">
+                        <p>&copy; 2015 eElectronics. All Rights Reserved. Coded with <i class="fa fa-heart"></i> by <a href="http://wpexpand.com" target="_blank">WP Expand</a> // 해당 페이지의 부트스트랩 템플릿에 구현된 코드입니다.  </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> <!-- End footer bottom area -->
+   
+    <!-- Latest jQuery form server -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS form CDN -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    
+    <!-- jQuery sticky menu -->
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/jquery.sticky.js"></script>
+    
+    <!-- jQuery easing -->
+    <script src="/js/jquery.easing.1.3.min.js"></script>
+    
+    <!-- Main Script -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>
