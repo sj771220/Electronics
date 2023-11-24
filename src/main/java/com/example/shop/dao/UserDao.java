@@ -4,12 +4,14 @@ import com.example.shop.dto.OrderList;
 import com.example.shop.dto.Review;
 import com.example.shop.dto.UserVo;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Mapper
-public interface UserMapper {
+@Repository
+public interface UserDao {
     List<UserVo> getUserList(); // User 테이블 가져오기
     void insertUser(UserVo userVo); // 회원 가입
     UserVo getUserByUserid(String userid); // 회원 정보 가져오기
