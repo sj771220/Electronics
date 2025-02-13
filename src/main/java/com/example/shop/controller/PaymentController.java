@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class PaymentController {
@@ -39,39 +40,35 @@ public class PaymentController {
 
 
     @PostMapping("/PaymentCheck")
-    public ResponseEntity<String> receivePaymentInfo(@RequestBody PaymentInfo paymentInfo) {
+    public ResponseEntity<String> receivePaymentInfo(@RequestBody Map<String,Object> paymentInfo) {
 
         Long loginid = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String merchant=paymentInfo.getMerchant_uid();
-        int amount=paymentInfo.getAmount();
-        String delivery="배송 전";
-        String buyer_email=paymentInfo.getBuyer_email();
-        String buyer_address=paymentInfo.getBuyer_addr();
-        String buyer_addDetail=paymentInfo.getBuyer_addDetail();
-        int buyer_postcode=Integer.parseInt(paymentInfo.getBuyer_postcode());
-        String buyer_phone=paymentInfo.getBuyer_tel();
-        String buyer_name=paymentInfo.getBuyer_name();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        String merchant=String.valueOf(paymentInfo.get("merchant_uid"));
 
         LocalDate today=LocalDate.now();
 
+        paymentInfo.put("delivery","배송 전");
+        paymentInfo.put("loginid",loginid);
+        paymentInfo.put("today",today);
 
 
-        shopService.checkoutFinish1(merchant,loginid,amount,delivery,buyer_email,buyer_address,buyer_addDetail,buyer_postcode,buyer_phone,buyer_name,today);
-        List<Cart>list= shopService.showCart2(loginid);
+
+        shopService.insertOrderList(paymentInfo);
+
+        List<Cart>list= shopService.getCartListByUserID(loginid);
+
         for(int i=0;i<list.size();i++){
-            shopService.checkoutFinish2(merchant,list.get(i).getId(),list.get(i).getPd_count());
+            shopService.insertOrderPD(merchant,list.get(i).getId(),list.get(i).getPd_count());
         }
 
-        shopService.checkoutFinish3(loginid);
+        shopService.deleteFromCart(loginid);
 
-        List<OrderPd> pdlist=shopService.getorderPd(paymentInfo.getMerchant_uid());
+        List<OrderPd> pdlist=shopService.getOrderPD(merchant);
 
         for(int i=0;i<pdlist.size();i++){
             shopService.updateorder_count(pdlist.get(i).getPd_id(),pdlist.get(i).getPd_count());
-            System.out.println("-=========================================");
-            System.out.println(pdlist);
 
         }
 

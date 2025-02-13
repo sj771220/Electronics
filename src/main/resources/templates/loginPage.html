@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>eElectronics - HTML eCommerce Template</title>
+    <title>eElectronics -Login</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,17 +76,17 @@
 
             <div class="col-sm-4" >
                 <div class="mainsearch">
-                    <form action="/seesa" method="get">
+                    <form action="/searchResult" method="get">
                         <input type="text" name="keyword" placeholder="원하시는 상품을 검색해보세요." class="searchForm">
                         <input type="hidden" name="page" placeholder="Page" value="1">
-                        <input type="submit" value="Search">
+                        <input type="submit" value="검색">
                     </form>
                 </div>
             </div>
             <th:block th:if="${islogin}!=null">
                 <div class="col-sm-4">
                     <div class="shopping-item">
-                        <a href="/cart"> <span style="font-size: 14px"> 장바구니 </span> - <span class="cart-amunt" th:text="'￦'+${totalprice}"></span> <i class="fa fa-shopping-cart"></i> <span class="product-count" th:text="${totalcnt}"></span></a>
+                        <a href="/cart"> <span style="font-size: 14px"> 장바구니 </span> - <span class="cart-amunt" th:text="'￦'+${totalPrice}"></span> <i class="fa fa-shopping-cart"></i> <span class="product-count" th:text="${totalCnt}"></span></a>
                     </div>
                 </div>
             </th:block>
@@ -149,11 +149,11 @@
             <form action="/auth" method="post" class="custom-form">
 <!--                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
                     <h4><span style="">Electronics에 오신 것을 환영합니다</span></h4> <br>
-                <div>
-                    <input type="text" th:name="userid" placeholder="UserId" required/>
+                <div style="margin-bottom: 10px;">
+                    <input type="text" th:name="userid" placeholder="아이디" required/>
                 </div>
                 <div>
-                    <input type="password" th:name="password" placeholder="Password" required />
+                    <input type="password" th:name="password" placeholder="비밀번호" required />
                 </div>
                 <br>
 
@@ -178,7 +178,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="footer-about-us">
                     <h2>e<span>Electronics</span></h2>
-                    <p>상호명 및 호스팅 서비스 제공 : 임시이름 <br>
+                    <p>상호명 및 호스팅 서비스 제공 : Electronics <br>
                         대표이사 : 박선우 <br>
                         서울시 강북구 덕릉로 2222<br>
                         사업자 등록번호 : 111-1111-2222<br>

@@ -57,11 +57,6 @@ public class UserService {
         }
     }
 
-    public void edit(UserVo userVo) { // 회원 정보 수정
-        // password는 암호화해서 DB에 저장
-        userVo.setPassword(passwordEncoder.encode(userVo.getPassword()));
-        userDao.updateUser(userVo);
-    }
 
     public void withdraw(Long id) { // 회원 탈퇴
         userDao.deleteUser(id);
@@ -117,7 +112,14 @@ public class UserService {
     }
 
     public List<OrderList> getOrderSearch(Long userid,String orderdate,int startindex,int pagesize){
-          return  userDao.getOrderSearch(userid,orderdate,startindex,pagesize);
+        List<OrderList> list=  userDao.getOrderSearch(userid,orderdate,startindex,pagesize);
+
+        for(int i=0;i<list.size();i++){
+            list.get(i).setKr_price(calculKr(list.get(i).getAmount()));
+        }
+
+        return list;
+
     }
 
     public int getOrderSearchct(Long userid,String orderdate){
@@ -131,6 +133,7 @@ public class UserService {
     public int getratect(int pd_id){
         return userDao.getratect(pd_id);
     }
+
     public int getidwithname(String pd_name){
         return userDao.getidwithname(pd_name);
     }
@@ -178,5 +181,9 @@ public class UserService {
 
     public void subcribenews(String email){
         userDao.subcribenews(email);
+    }
+
+    public void updatepwd(String pwd,Long loginid){
+        userDao.updatepwd(pwd,loginid);
     }
 }

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>eElectronics - HTML eCommerce Template</title>
+    <title>eElectronics - UserInfo</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,8 +44,8 @@
 <script th:if="${updateaddr} == 1">
     document.addEventListener('DOMContentLoaded', function () {
         Swal.fire({
-            title: '물건을 담았어요!',  // Alert 제목
-            text: '장바구니에 성공적으로 물건을 담았습니다.',  // Alert 내용
+            title: '주소 업데이트 완료!',  // Alert 제목
+            text: '주소를 업데이트 했어요',  // Alert 내용
             icon: 'success', // Alert 타입
             confirmButtonText: '확인', // Confirm 버튼의 텍스트
             allowOutsideClick: false, // Alert 외부 클릭으로 닫히는 것 방지
@@ -98,17 +98,17 @@
 
             <div class="col-sm-4" >
                 <div class="mainsearch">
-                    <form action="/seesa" method="get">
+                    <form action="/searchResult" method="get">
                         <input type="text" name="keyword" placeholder="원하시는 상품을 검색해보세요." class="searchForm">
                         <input type="hidden" name="page" placeholder="Page" value="1">
-                        <input type="submit" value="Search">
+                        <input type="submit" value="검색">
                     </form>
                 </div>
             </div>
             <th:block th:if="${islogin}!=null">
                 <div class="col-sm-4">
                     <div class="shopping-item">
-                        <a href="/cart"> <span style="font-size: 14px"> 장바구니 </span> - <span class="cart-amunt" th:text="'￦'+${totalprice}"></span> <i class="fa fa-shopping-cart"></i> <span class="product-count" th:text="${totalcnt}"></span></a>
+                        <a href="/cart"> <span style="font-size: 14px"> 장바구니 </span> - <span class="cart-amunt" th:text="'￦'+${totalPrice}"></span> <i class="fa fa-shopping-cart"></i> <span class="product-count" th:text="${totalCnt}"></span></a>
                     </div>
                 </div>
             </th:block>
@@ -166,7 +166,7 @@
     <div class="zigzag-bottom"></div>
     <div class="signup_area" style="margin-bottom: 50px" >
         <div>
-        <h2 th:text="${userDto.getName()}+ '님의 정보입니다.'" style="margin-left: 100px" ></h2>
+        <h2 th:text="${userDto.name}+ '님의 정보입니다.'" style="margin-left: 100px" ></h2>
         <table class="userinfotable" style="margin: 0 auto">
 
             <tr>
@@ -175,7 +175,7 @@
             </tr>
             <tr>
                 <td style="width: 25%;">이름</td>
-                <td style="width: 75%;" ><span th:text="${userDto.getName()}"></span></td>
+                <td style="width: 75%;" ><span th:text="${userDto.name}"></span></td>
             </tr>
             <tr>
                 <td style="width: 25%;">전화번호</td>
@@ -213,11 +213,11 @@
                     <form action="/updateDefaultAdd" method="post">
                     <p class="form-row form-row-wide address-field validate-required">
                         <input type="text" id="zip_code" name="zip_code"  readonly="readonly"
-                               placeholder="우편번호" th:value="${userDto.getAddressnum}"required style="margin-right: 10px;border: none;"> <input type="button" onclick="openZipSearch();" value="우편번호 찾기" >
+                               placeholder="우편번호" th:value="${userDto.getAddressnum()}"required style="margin-right: 10px;border: none;"> <input type="button" onclick="openZipSearch();" value="우편번호 찾기" >
 
                         <input type="text" id="addr" name="addr" readonly="readonly"
-                               placeholder="기본주소"  required th:value="${userDto.getAddress}">
-                        <input type="text" id="addr_dtl" name="addr_dtl"  placeholder="상세주소" th:value="${userDto.getDetail_address}" required>
+                               placeholder="기본주소"  required th:value="${userDto.getAddress()}">
+                        <input type="text" id="addr_dtl" name="addr_dtl"  placeholder="상세주소" th:value="${userDto.getDetail_address()}" required>
 
                     </p>
                            <input type="submit" class="changebtn" value="배송지 변경">
@@ -238,7 +238,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="footer-about-us">
                     <h2>e<span>Electronics</span></h2>
-                    <p>상호명 및 호스팅 서비스 제공 : 임시이름 <br>
+                    <p>상호명 및 호스팅 서비스 제공 : Electronics <br>
                         대표이사 : 박선우 <br>
                         서울시 강북구 덕릉로 2222<br>
                         사업자 등록번호 : 111-1111-2222<br>

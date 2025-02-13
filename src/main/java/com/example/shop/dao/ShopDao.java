@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ShopDao {
@@ -39,9 +40,9 @@ public interface ShopDao {
 
     public int getpdCnt(int pd_id);
 
-    public Product showCart1(int id);
+    public Product getProductByCartID(int id);
 
-    public List<Cart> showCart2(Long id);
+    public List<Cart> getCartListByUserID(Long id);
 
     public List<Product>searchKeyword(@Param("param") String param,@Param("startIndex") int startIndex, @Param("pageSize") int pageSize);
 
@@ -49,27 +50,31 @@ public interface ShopDao {
 
     public void removeCart(Long userid, int id);
 
-    public void pluscart(Long userid, int id);
+    public void plustCart(Long userid, int id);
 
-    public void minuscart(Long userid,int id);
+    public void minusCart(Long userid,int id);
 
-    public void inventoryCart1(int pd_count,int id);
+    public void minusInventoryStock(int pd_count,int id);
 
-    public void inventoryCart2(int pd_count,int id);
+    public void plusInventoryStock(int pd_count,int id);
 
     public UserVo getUserInfo(Long id);
 
-    public void checkoutFinish1(String merchant_uid, Long userid, int amount, String delivery_status, String buyer_email, String buyer_address, String buyer_addDetail, int buyer_postcode, String buyer_phone, String buyer_name, LocalDate today);
+    public void insertOrderList(Map<String,Object> paymentInfo);
 
-    public void checkoutFinish2(String merchant_uid,int pd_id,int pd_count);
+    public void insertOrderPD(String merchant_uid,int pd_id,int pd_count);
 
-    public void checkoutFinish3(Long userid);
+    public void deleteFromCart(Long userid);
 
     public void updateView(int id);
 
-    public String getpd_name(int pd_id);
+    public String getProductNameByID(int pd_id);
 
-    public List<OrderPd> getorderPd(String merchant_uid);
+    public List<OrderPd> getOrderPD(String merchant_uid);
 
     public void updateorder_count(int pd_id,int count);
+
+    public List<Map<String,Object>> SelectAllProductList();
+
+    public void UpdateProductImgTemp(Map<String,Object>paramMap);
     }

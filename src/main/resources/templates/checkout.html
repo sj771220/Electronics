@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>eElectronics - HTML eCommerce Template</title>
+    <title>eElectronics - Checkout</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
       <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -45,7 +45,7 @@
                   .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
           }
           function checknullCart(){
-              if([[${totalcnt}]]===0){
+              if([[${totalCnt}]]===0){
                   Swal.fire({
                       title: '장바구니가 비어있어요!',  // Alert 제목
                       text: '장바구니에 결제할 상품이 담겨있지 않습니다.',  // Alert 내용
@@ -78,7 +78,7 @@
               const buyer_addDetail = document.getElementById("addr_detail").value;
               const buyer_postcode = document.getElementById("buyer_postcode").value;
               const buyer_addr = document.getElementById("billing_address_1").value;
-              const amount= [[${totalprice}]];
+              const amount= [[${totalPrice}]];
 
 
               IMP.request_pay(
@@ -115,11 +115,11 @@
                               contentType: 'application/json',
                               success : function(data) {
                                   Swal.fire({
-                                      title: '결제가 완료되었어요!',  // Alert 제목
-                                      text: '구매하신 건에 대한 결제가 완료되었습니다.',  // Alert 내용
-                                      icon: 'success', // Alert 타입
-                                      confirmButtonText: '확인', // Confirm 버튼의 텍스트
-                                      allowOutsideClick: false, // Alert 외부 클릭으로 닫히는 것 방지
+                                      title: '결제가 완료되었어요!',
+                                      text: '구매하신 건에 대한 결제가 완료되었습니다.',
+                                      icon: 'success',
+                                      confirmButtonText: '확인',
+                                      allowOutsideClick: false,
                                   }).then((result) => {
                                       if (result.isConfirmed) {
                                           window.location.href="/orderlist/1";
@@ -152,7 +152,7 @@
               const buyer_addDetail2 = document.getElementById("addr_dtl").value;
               const buyer_postcode2 = document.getElementById("zip_code").value;
               const buyer_addr2 = document.getElementById("addr").value;
-              const amount2= [[${totalprice}]];
+              const amount2= [[${totalPrice}]];
 
 
               if(buyerName2==null||buyerName2===''||buyerEmail2==null||buyerEmail2===''
@@ -299,17 +299,17 @@
 
               <div class="col-sm-4" >
                   <div class="mainsearch">
-                      <form action="/seesa" method="get">
+                      <form action="/searchResult" method="get">
                           <input type="text" name="keyword" placeholder="원하시는 상품을 검색해보세요." class="searchForm">
                           <input type="hidden" name="page" placeholder="Page" value="1">
-                          <input type="submit" value="Search">
+                          <input type="submit" value="검색">
                       </form>
                   </div>
               </div>
               <th:block th:if="${islogin}!=null">
                   <div class="col-sm-4">
                       <div class="shopping-item">
-                          <a href="/cart"> <span style="font-size: 14px"> 장바구니 </span> - <span class="cart-amunt" th:text="'￦'+${totalprice2}"></span> <i class="fa fa-shopping-cart"></i> <span class="product-count" th:text="${totalcnt}"></span></a>
+                          <a href="/cart"> <span style="font-size: 14px"> 장바구니 </span> - <span class="cart-amunt" th:text="'￦'+${totalPrice2}"></span> <i class="fa fa-shopping-cart"></i> <span class="product-count" th:text="${totalCnt}"></span></a>
                       </div>
                   </div>
               </th:block>
@@ -371,10 +371,10 @@
                 <div class="col-md-4">
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">상품 검색</h2>
-                        <form action="/seesa" method="get">
-                            <input type="text" name="keyword" placeholder="Search products...">
+                        <form action="/searchResult" method="get">
+                            <input type="text" name="keyword" placeholder="상품명, 혹은 카테고리를 입력해주세요.">
                             <input type="hidden" name="page" placeholder="Page" value="1">
-                            <input type="submit" value="Search">
+                            <input type="submit" value="검색">
                         </form>
                     </div>
 
@@ -415,14 +415,14 @@
                                             <h3>기본 주소로 배송</h3>
 
                                             <p id="billing_last_name_field" class="form-row form-row-last validate-required">
-                                                <label class="" for="billing_last_name">Name <abbr title="required" class="required">*</abbr>
+                                                <label class="" for="billing_last_name">주문자 성함 <abbr title="required" class="required">*</abbr>
                                                 </label>
                                                 <input type="text" th:value="${user.getName()}" placeholder="" id="billing_last_name" name="billing_last_name" class="input-text" readonly>
                                             </p>
                                             <div class="clear"></div>
 
                                             <p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required">
-                                                <label class="" for="billing_address_1">Address <abbr title="required" class="required">*</abbr>
+                                                <label class="" for="billing_address_1">주소 <abbr title="required" class="required">*</abbr>
                                                 </label>
                                                 <input type="text" th:value="${user.getAddressnum()}"  id="buyer_postcode" class="input-text " readonly>
 
@@ -436,13 +436,13 @@
                                             <div class="clear"></div>
 
                                             <p id="billing_email_field" class="form-row form-row-first validate-required validate-email">
-                                                <label class="" for="billing_email">Email Address <abbr title="required" class="required">*</abbr>
+                                                <label class="" for="billing_email">이메일 주소 <abbr title="required" class="required">*</abbr>
                                                 </label>
                                                 <input type="text" th:value="${user.getEmail()}" id="billing_email" name="billing_email" class="input-text " readonly>
                                             </p>
 
                                             <p id="billing_phone_field" class="form-row form-row-last validate-required validate-phone">
-                                                <label class="" for="billing_phone">Phone <abbr title="required" class="required">*</abbr>
+                                                <label class="" for="billing_phone">전화번호 <abbr title="required" class="required">*</abbr>
                                                 </label>
                                                 <input type="text" th:value="${user.getPhone()}" id="billing_phone" name="billing_phone" class="input-text " readonly>
                                             </p>
@@ -458,14 +458,14 @@
                                             <h3>다른 주소로 받으시겠어요? <input type="checkbox" value="1" name="ship_to_different_address" class="input-checkbox" id="ship-to-different-address-checkbox" onchange="updateButtonFunction()"></h3>
 
                                             <p  class="form-row form-row-last validate-required">
-                                                <label >Name <abbr title="required" class="required">*</abbr>
+                                                <label >주문자 성함 <abbr title="required" class="required">*</abbr>
                                                 </label>
                                                 <input type="text" id="different_name"  name="billing_last_name" class="input-text" >
                                             </p>
                                             <div class="clear"></div>
 
                                             <p  class="form-row form-row-wide address-field validate-required">
-                                                <label class="" for="billing_address_1">Address <abbr title="required" class="required">*</abbr>
+                                                <label class="" for="billing_address_1">주소 <abbr title="required" class="required">*</abbr>
                                                 </label>
                                                 <input type="text"  id="zip_code" name="zip_code" onclick="openZipSearch();" readonly="readonly" placeholder="우편번호" class="input-text ">
                                                 <input type="text"  id="addr" name="addr" onclick="openZipSearch();" readonly="readonly" placeholder="기본주소"  class="input-text ">
@@ -476,13 +476,13 @@
                                             <div class="clear"></div>
 
                                             <p  class="form-row form-row-first validate-required validate-email">
-                                                <label class="" for="billing_email">Email Address <abbr title="required" class="required">*</abbr>
+                                                <label class="" for="billing_email">이메일 주소 <abbr title="required" class="required">*</abbr>
                                                 </label>
                                                 <input type="text" id="different_email" name="billing_email" class="input-text " >
                                             </p>
 
                                             <p  class="form-row form-row-last validate-required validate-phone">
-                                                <label class="" for="billing_phone">Phone <abbr title="required" class="required">*</abbr>
+                                                <label class="" for="billing_phone">전화번호 <abbr title="required" class="required">*</abbr>
                                                 </label>
                                                 <input type="text" id="different_tel" oninput="hypenTel(this)" placeholder="하이픈 (-)은 자동으로 입력됩니다." maxlength="13"  name="billing_phone" class="input-text " >
                                             </p>
@@ -544,7 +544,7 @@
                                     <tbody>
                                     <tr class="cart-subtotal">
                                         <th>총 수량</th>
-                                        <td><span class="amount" th:text="${totalcnt}+' 건'"></span></td>
+                                        <td><span class="amount" th:text="${totalCnt}+' 건'"></span></td>
                                     </tr>
 
                                     <tr class="shipping">
@@ -554,7 +554,7 @@
 
                                     <tr class="order-total">
                                         <th>결제 가격</th>
-                                        <td><strong><span id="amount" class="amount" th:text="'￦'+${totalprice2}" th:value="${totalprice}"></span></strong> </td>
+                                        <td><strong><span id="amount" class="amount" th:text="'￦'+${totalPrice2}" th:value="${totalPrice}"></span></strong> </td>
                                     </tr>
 
                                     </tbody>
@@ -609,7 +609,7 @@
               <div class="col-md-3 col-sm-6">
                   <div class="footer-about-us">
                       <h2>e<span>Electronics</span></h2>
-                      <p>상호명 및 호스팅 서비스 제공 : 임시이름 <br>
+                      <p>상호명 및 호스팅 서비스 제공 : Electronics <br>
                           대표이사 : 박선우 <br>
                           서울시 강북구 덕릉로 2222<br>
                           사업자 등록번호 : 111-1111-2222<br>

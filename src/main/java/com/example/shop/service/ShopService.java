@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 @Service
 public class ShopService {
@@ -24,7 +25,16 @@ public class ShopService {
     public ShopService(ShopDao shopDao){this.shopdao=shopDao;}
 
 
-    public List<Product> calculprice(List<Product>list){
+    public String calKrPrice(int totalPrice){
+        NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.KOREA);
+
+        // 숫자를 형식화하여 문자열로 변환
+        String formattedAmount = numberFormat.format(totalPrice);
+
+        return formattedAmount;
+    }
+
+    public List<Product> calculPrice(List<Product>list){
         for(int i=0;i<list.size();i++){
             int oldprice=list.get(i).getPd_price();
             int percent=list.get(i).getPd_sale_percent();
@@ -42,7 +52,7 @@ public class ShopService {
         return list;
     }
 
-    public List<Cart> calculprice2(List<Cart>list){
+    public List<Cart> calculPrice2(List<Cart>list){
         for(int i=0;i<list.size();i++){
             int oldprice=list.get(i).getPd_price();
             int percent=list.get(i).getPd_sale_percent();
@@ -64,24 +74,30 @@ public class ShopService {
         return list;
     }
 
-    public List<Product> gettest(){ List<Product> list=shopdao.getBest();
+    public List<Product> getBestList(){
+        
+        List<Product> list=shopdao.getBest();
 
-        List<Product>listre=calculprice(list);
-        return listre;}
+        return calculPrice(list);
+    
+    }
 
-    public List<Product> getlist(String which){
+    public List<Product> getListForRank(String which){
+
         List<Product> list=new ArrayList<>();
+
         switch (which){
             case "view": list=shopdao.viewList();
-            break;
+                break;
             case "top": list=shopdao.topList();
-            break;
+                break;
             case "rating": list=shopdao.ratingList();
-            break;
+                break;
+            default:
+                list=shopdao.viewList();
         }
 
-        List<Product> listre=calculprice(list);
-        return listre;
+        return calculPrice(list);
     }
 
     public Product getProduct(int id){
@@ -91,7 +107,7 @@ public class ShopService {
     public List<Product> getCategoryList(String category){
         List<Product>list=shopdao.getCategoryList(category);
 
-        return calculprice(list);
+        return calculPrice(list);
 
     }
     public int getCnt(){return shopdao.getCnt();}
@@ -99,11 +115,11 @@ public class ShopService {
     public List<Product> findListPaging(@Param("startIndex") int startIndex, @Param("pageSize") int pageSize){
         List<Product> list=shopdao.findListPaging(startIndex,pageSize);
 
-        return calculprice(list);
+        return calculPrice(list);
     }
     public List<Product>getCategoryPaging(@Param("category")String category,@Param("startIndex") int startIndex, @Param("pageSize") int pageSize ){
         List<Product> list=shopdao.getCategoryPaging(category,startIndex,pageSize);
-        return calculprice(list);
+        return calculPrice(list);
     }
 
     public int getCategoryCnt(String category){
@@ -126,20 +142,18 @@ public class ShopService {
         return shopdao.getpdCnt(pd_id);
     }
 
-    public Product showCart1(int id){
-        return shopdao.showCart1(id);
+    public Product getProductByCartID(int id){
+        return shopdao.getProductByCartID(id);
     }
 
-    public List<Cart> showCart2(Long id){
-        List<Cart>list=shopdao.showCart2(id);
+    public List<Cart> getCartListByUserID(Long id){
+        List<Cart>list=shopdao.getCartListByUserID(id);
 
-
-
-        return calculprice2(list);
+        return calculPrice2(list);
     }
 
     public List<Product>searchKeyword(@Param("param") String param,@Param("startIndex") int startIndex, @Param("pageSize") int pageSize){
-        List<Product>list=calculprice(shopdao.searchKeyword(param,startIndex,pageSize));
+        List<Product>list=calculPrice(shopdao.searchKeyword(param,startIndex,pageSize));
         return list;
     }
 
@@ -151,50 +165,53 @@ public class ShopService {
         shopdao.removeCart(userid,id);
     }
 
-    public void pluscart(Long userid, int id){
-        shopdao.pluscart(userid,id);
+    public void plustCart(Long userid, int id){
+        shopdao.plustCart(userid,id);
     }
 
-    public void minuscart(Long userid,int id){
-        shopdao.minuscart(userid,id);
+    public void minusCart(Long userid,int id){
+        shopdao.minusCart(userid,id);
     }
 
-    public void inventoryCart1(int pd_count,int id){
-        shopdao.inventoryCart1(pd_count,id);
+    public void minusInventoryStock(int pd_count,int id){
+        shopdao.minusInventoryStock(pd_count,id);
     }
 
-    public void inventoryCart2(int pd_count,int id){
-        shopdao.inventoryCart2(pd_count,id);
+    public void plusInventoryStock(int pd_count,int id){
+        shopdao.plusInventoryStock(pd_count,id);
     }
 
     public UserVo getUserInfo(Long id){
            return shopdao.getUserInfo(id);
     }
 
-    public void checkoutFinish1(String merchant_uid, Long userid, int amount, String delivery_status, String buyer_email, String buyer_address, String buyer_addDetail, int buyer_postcode, String buyer_phone, String buyer_name, LocalDate today){
-        shopdao.checkoutFinish1(merchant_uid,userid,amount,delivery_status,buyer_email,buyer_address,buyer_addDetail,buyer_postcode,buyer_phone,buyer_name,today);
+    public void insertOrderList(Map<String,Object> paymentInfo){
+        shopdao.insertOrderList(paymentInfo);
+    }
+    public void insertOrderPD(String merchant_uid,int pd_id,int pd_count){
+        shopdao.insertOrderPD(merchant_uid,pd_id,pd_count);
     }
 
-    public void checkoutFinish2(String merchant_uid,int pd_id,int pd_count){
-        shopdao.checkoutFinish2(merchant_uid,pd_id,pd_count);
-    }
-
-    public void checkoutFinish3(Long userid){
-        shopdao.checkoutFinish3(userid);
+    public void deleteFromCart(Long userid){
+        shopdao.deleteFromCart(userid);
     }
     public void updateView(int id){
         shopdao.updateView(id);
     }
 
-    public String getpd_name(int pd_id){
-        return shopdao.getpd_name(pd_id);
+    public String getProductNameByID(int pd_id){
+        return shopdao.getProductNameByID(pd_id);
     }
 
-    public List<OrderPd> getorderPd(String merchant_uid){
-        return shopdao.getorderPd(merchant_uid);
+    public List<OrderPd> getOrderPD(String merchant_uid){
+        return shopdao.getOrderPD(merchant_uid);
     }
 
     public void updateorder_count(int pd_id,int count){
         shopdao.updateorder_count(pd_id,count);
     }
+
+    public List<Map<String,Object>> SelectAllProductList(){return shopdao.SelectAllProductList();}
+
+    public void UpdateProductImgTemp(Map<String,Object>paramMap){shopdao.UpdateProductImgTemp(paramMap);}
 }

@@ -8,12 +8,17 @@
 
     <select id="getBest" resultType="com.example.shop.dto.Product">
 
-    select * from product order by rating desc limit 5
+        SELECT *
+
+        FROM
+            product
+        WHERE
+            1=1
+        ORDER BY rating desc
+
+        limit 5
 
     </select>
-
-
-
 
     <select id="getCnt" resultType="int">
         select count(*) from product
@@ -26,7 +31,7 @@
     </select>
 
     <select id="getCategoryList" resultType="com.example.shop.dto.Product">
-        select * from product where category=#{param1} Limit 3
+        select * from product where category=#{param1}
     </select>
 
     <select id="topList" resultType="com.example.shop.dto.Product">
@@ -46,6 +51,14 @@
         update product set order_count=order_count+#{param2} where id=#{param1}
     </update>
 
+
+    <select id="SelectAllProductList" resultType="map">
+        select * from product where 1=1
+    </select>
+
+    <select id="UpdateProductImgTemp" parameterType="map">
+        update product set pd_img = #{idStr} where id=#{id}
+    </select>
 
     <select id="findListPaging" resultType="com.example.shop.dto.Product">
         SELECT * FROM product
@@ -83,13 +96,21 @@
         select inventory from product where id=#{param1}
     </select>
 
-    <select id="showCart1" resultType="com.example.shop.dto.Product">
+    <select id="getProductByCartID" resultType="com.example.shop.dto.Product">
         select * from product where id=#{param1}
     </select>
 
-    <select id="showCart2" resultType="com.example.shop.dto.Cart">
-        select c.userid, c.pd_count, c.id, p.pd_name, p.pd_price, p.pd_sale_percent, p.pd_img
-        from cart c join product p on c.id=p.id
+    <select id="getCartListByUserID" resultType="com.example.shop.dto.Cart">
+        select
+            c.userid,
+            c.pd_count,
+            c.id,
+            p.pd_name,
+            p.pd_price,
+            p.pd_sale_percent,
+            p.pd_img
+        from cart c
+            inner join product p on c.id=p.id
         where c.userid=#{param1}
 
     </select>
@@ -111,19 +132,19 @@
         WHERE pd_name LIKE CONCAT('%', #{param}, '%')
     </select>
 
-    <update id="pluscart">
+    <update id="plustCart">
         update cart set pd_count=pd_count+1 where userid=#{param1} and id=#{param2}
     </update>
 
-    <update id="minuscart">
+    <update id="minusCart">
         update cart set pd_count=pd_count-1 where userid=#{param1} and id=#{param2}
     </update>
 
-    <update id="inventoryCart1">
+    <update id="minusInventoryStock">
         update product set inventory=inventory-#{param1} where id=#{param2}
     </update>
 
-    <update id="inventoryCart2">
+    <update id="plusInventoryStock">
         update product set inventory=inventory+#{param1} where id=#{param2}
     </update>
 
@@ -132,16 +153,45 @@
 
     </select>
 
-    <insert id="checkoutFinish1">
-        insert into orderlist values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11})
+    <insert id="insertOrderList" parameterType="map">
+
+        INSERT INTO `orderlist`
+               (
+                `merchant_uid`,
+                `userid`,
+                `amount`,
+                `delivery_status`,
+                `buyer_email`,
+                `buyer_address`,
+                `buyer_addDetail`,
+                `buyer_postcode`,
+                `buyer_phone`,
+                `buyer_name`,
+                `orderdate`
+               )
+               VALUES
+
+               (
+                    #{merchant_uid},
+                    #{loginid},
+                    #{amount},
+                    #{delivery},
+                    #{buyer_email},
+                    #{buyer_addr},
+                    #{buyer_addDetail},
+                    #{buyer_postcode},
+                    #{buyer_tel},
+                    #{buyer_name},
+                    #{today}
+               )
 
     </insert>
 
-    <insert id="checkoutFinish2">
+    <insert id="insertOrderPD">
         insert into order_pd values (#{param1},#{param2},#{param3})
     </insert>
 
-    <delete id="checkoutFinish3">
+    <delete id="deleteFromCart">
         delete from cart where userid=#{param1}
     </delete>
 
@@ -150,12 +200,36 @@
         update product set view=view+1 where id=#{param1}
     </update>
 
-    <select id="getpd_name" resultType="String">
+    <select id="getProductNameByID" resultType="String">
         select pd_name from product where id=#{param1}
     </select>
 
-    <select id="getorderPd" resultType="com.example.shop.dto.OrderPd">
+    <select id="getOrderPD" resultType="com.example.shop.dto.OrderPd">
         select * from order_pd where merchant_uid=#{param1}
+    </select>
+
+
+    <select id="SelectCartListForBatch" resultType="map">
+
+        select
+            c.userid,
+            c.pd_count,
+            c.id,
+            p.pd_name,
+            p.pd_price,
+            p.pd_sale_percent,
+            p.pd_img,
+            DATE_FORMAT(c.`REGDATE`, '%Y-%m-%d') AS `REGDATE`
+
+        from
+            cart c
+        left join
+            product p on c.id=p.id
+
+        where
+            1 = 1
+
+
     </select>
 
 </mapper>

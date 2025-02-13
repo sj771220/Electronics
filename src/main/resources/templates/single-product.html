@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>eElectronics - HTML eCommerce Template</title>
+    <title>eElectronics - Single Detail</title>
     
     <!-- Google Fonts -->
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,17 +76,17 @@
 
               <div class="col-sm-4" >
                   <div class="mainsearch">
-                      <form action="/seesa" method="get">
+                      <form action="/searchResult" method="get">
                           <input type="text" name="keyword" placeholder="원하시는 상품을 검색해보세요." class="searchForm">
                           <input type="hidden" name="page" placeholder="Page" value="1">
-                          <input type="submit" value="Search">
+                          <input type="submit" value="검색">
                       </form>
                   </div>
               </div>
               <th:block th:if="${islogin}!=null">
                   <div class="col-sm-4">
                       <div class="shopping-item">
-                          <a href="/cart"> <span style="font-size: 14px"> 장바구니 </span> - <span class="cart-amunt" th:text="'￦'+${totalprice}"></span> <i class="fa fa-shopping-cart"></i> <span class="product-count" th:text="${totalcnt}"></span></a>
+                          <a href="/cart"> <span style="font-size: 14px"> 장바구니 </span> - <span class="cart-amunt" th:text="'￦'+${totalPrice}"></span> <i class="fa fa-shopping-cart"></i> <span class="product-count" th:text="${totalCnt}"></span></a>
                       </div>
                   </div>
               </th:block>
@@ -148,10 +148,10 @@
                 <div class="col-md-4">
 <!--                    <div class="single-sidebar">-->
 <!--                        <h2 class="sidebar-title">상품 검색</h2>-->
-<!--                        <form action="/seesa" method="get">-->
-<!--                            <input type="text" name="keyword" placeholder="Search products...">-->
+<!--                        <form action="/searchResult" method="get">-->
+<!--                            <input type="text" name="keyword" placeholder="상품명, 혹은 카테고리를 입력해주세요.">-->
 <!--                            <input type="hidden" name="page" placeholder="Page" value="1">-->
-<!--                            <input type="submit" value="Search">-->
+<!--                            <input type="submit" value="검색">-->
 <!--                        </form>-->
 <!--                    </div>-->
 <!--                    -->
@@ -184,7 +184,7 @@
                         <div class="product-breadcroumb">
                             <a href="/main">Home</a>
                             <a th:href="@{'/category/' + ${product.getCategory()}+'/1'}"><th:block th:text="${product.getCategory()}"></th:block> </a>
-                            <a href=""><th:block th:text="${product.getPd_name()}"></th:block> </a>
+                            <a href=""><th:block th:text="${product.getProductNameByID()}"></th:block> </a>
                         </div>
 
                         <div class="row">
@@ -199,12 +199,12 @@
 
                             <div class="col-sm-6">
                                 <div class="product-inner">
-                                    <h2 class="product-name"><th:block th:text="${product.getPd_name()}"></th:block></h2>
+                                    <h2 class="product-name"><th:block th:text="${product.getProductNameByID()}"></th:block></h2>
                                     <div class="product-inner-price">
                                         <ins><th:block th:text="'￦'+${product.kr_price}"></th:block></ins> <del><th:block th:text="'￦'+${product.pd_price}"></th:block></del>
                                     </div>
 
-                                    <form th:action="'/addcart/' + ${product.id}" class="cart" method="post">
+                                    <form th:action="'/addCart/' + ${product.id}" class="cart" method="post">
                                         <div class="quantity">
                                             <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" max="5" step="1">
                                         </div>
@@ -232,7 +232,7 @@
                                                 <h2>이용 후기</h2>
                                                 <div class="rivew-table">
 
-                                                    <table th:each="review:${reviewlist}" th:style="'border-bottom: 1px solid #dddddd'">
+                                                    <table th:each="review:${reviewList}" th:style="'border-bottom: 1px solid #dddddd'">
                                                         <tr>
 
                                                             <td> <span th:text="${review.id}"></span> <span th:text="${review.reviewDate}"></span>  <br>
@@ -274,7 +274,7 @@
               <div class="col-md-3 col-sm-6">
                   <div class="footer-about-us">
                       <h2>e<span>Electronics</span></h2>
-                      <p>상호명 및 호스팅 서비스 제공 : 임시이름 <br>
+                      <p>상호명 및 호스팅 서비스 제공 : Electronics <br>
                           대표이사 : 박선우 <br>
                           서울시 강북구 덕릉로 2222<br>
                           사업자 등록번호 : 111-1111-2222<br>

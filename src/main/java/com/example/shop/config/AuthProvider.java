@@ -1,6 +1,5 @@
 package com.example.shop.config;
 
-import com.example.shop.dao.UserDao;
 import com.example.shop.dto.UserVo;
 import com.example.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ import java.util.List;
 public class AuthProvider implements AuthenticationProvider {
 
     @Autowired
-    UserDao userDao;
+    UserService userService;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -29,7 +28,7 @@ public class AuthProvider implements AuthenticationProvider {
         String password = (String) authentication.getCredentials(); // 로그인 창에 입력한 password
 
         UsernamePasswordAuthenticationToken token;
-        UserVo userVo = userDao.getUserByUserid(userid);
+        UserVo userVo = userService.getUserByUserid(userid);
 
         if (userVo != null && password.equals(userVo.getPassword())) {
             // 사용자의 권한을 설정

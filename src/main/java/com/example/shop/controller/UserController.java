@@ -4,6 +4,8 @@ import com.example.shop.dto.*;
 import com.example.shop.etc.Pagination;
 import com.example.shop.service.ShopService;
 import com.example.shop.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +31,8 @@ public class UserController {
 
     @Autowired
     private ShopService shopService;
+
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping("/home")
     public String home(Model model) { // 인증된 사용자의 정보를 보여줌
@@ -107,19 +111,19 @@ public class UserController {
 
     @GetMapping("/orderlist/{page}")
     public String orderlist(Model model,@PathVariable int page){
-        int totalprice=0;
-        int totalcnt=0;
+        int totalPrice=0;
+        int totalCnt=0;
         Long loginid = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         try{
 
             model.addAttribute("islogin",loginid);
 
-            List<Cart> cartList=shopService.showCart2(loginid);
+            List<Cart> cartList=shopService.getCartListByUserID(loginid);
 
             for(int i=0;i<cartList.size();i++){
-                Product product=shopService.showCart1(cartList.get(i).getId());
-                totalprice+=cartList.get(i).getPd_count()*(product.getPd_price()-(product.getPd_price()*product.getPd_sale_percent()/100));
-                totalcnt+=cartList.get(i).getPd_count();
+                Product product=shopService.getProductByCartID(cartList.get(i).getId());
+                totalPrice+=cartList.get(i).getPd_count()*(product.getPd_price()-(product.getPd_price()*product.getPd_sale_percent()/100));
+                totalCnt+=cartList.get(i).getPd_count();
 
             }
 
@@ -128,8 +132,8 @@ public class UserController {
         } catch (Exception e){
 
         }
-        model.addAttribute("totalprice",totalprice);
-        model.addAttribute("totalcnt",totalcnt);
+        model.addAttribute("totalPrice",shopService.calKrPrice(totalPrice));
+        model.addAttribute("totalCnt",totalCnt);
 
 
         int totalListCnt=userService.gettotalorderct(loginid);
@@ -154,15 +158,15 @@ public class UserController {
 
         for(int i=0;i<list.size();i++){
 
-            List<OrderPd>list2=shopService.getorderPd(list.get(i).getMerchant_uid());
+            List<OrderPd>list2=shopService.getOrderPD(list.get(i).getMerchant_uid());
 
             for(int j=0;j<list2.size();j++){
-                list2.get(j).setPd_name(shopService.getpd_name(list2.get(j).getPd_id()));
+                list2.get(j).setPd_name(shopService.getProductNameByID(list2.get(j).getPd_id()));
                 list2.get(j).setPrice(userService.getprice(list2.get(j).getPd_id()));
                 list2.get(j).setKr_price(userService.calculKr(userService.getprice(list2.get(j).getPd_id())));
             }
 
-            String pd_name=shopService.getpd_name(list2.get(0).getPd_id());
+            String pd_name=shopService.getProductNameByID(list2.get(0).getPd_id());
             list.get(i).setPdlist(list2);
 
             int total=0;
@@ -207,19 +211,19 @@ public class UserController {
     @GetMapping("/orderlistSearch/{date}/{page}")
     public String searchpage(@PathVariable("date")String orderdate,@PathVariable("page")int page,Model model){
 
-        int totalprice=0;
-        int totalcnt=0;
+        int totalPrice=0;
+        int totalCnt=0;
         Long loginid = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         try{
 
             model.addAttribute("islogin",loginid);
 
-            List<Cart> cartList=shopService.showCart2(loginid);
+            List<Cart> cartList=shopService.getCartListByUserID(loginid);
 
             for(int i=0;i<cartList.size();i++){
-                Product product=shopService.showCart1(cartList.get(i).getId());
-                totalprice+=cartList.get(i).getPd_count()*(product.getPd_price()-(product.getPd_price()*product.getPd_sale_percent()/100));
-                totalcnt+=cartList.get(i).getPd_count();
+                Product product=shopService.getProductByCartID(cartList.get(i).getId());
+                totalPrice+=cartList.get(i).getPd_count()*(product.getPd_price()-(product.getPd_price()*product.getPd_sale_percent()/100));
+                totalCnt+=cartList.get(i).getPd_count();
 
             }
 
@@ -228,13 +232,12 @@ public class UserController {
 
         }
 
-        model.addAttribute("totalprice",totalprice);
-        model.addAttribute("totalcnt",totalcnt);
+        model.addAttribute("totalPrice",shopService.calKrPrice(totalPrice));
+        model.addAttribute("totalCnt",totalCnt);
 
 
         int pageSize = 4;
         int startIndex = (page-1) * pageSize;
-        System.out.println("====================================="+page);
 
         List<OrderList>list=userService.getOrderSearch(loginid,orderdate,startIndex,pageSize);
         int totalListCnt=userService.getOrderSearchct(loginid,orderdate);
@@ -249,88 +252,19 @@ public class UserController {
 
         for(int i=0;i<list.size();i++){
 
-            List<OrderPd>list2=shopService.getorderPd(list.get(i).getMerchant_uid());
-            String pd_name=shopService.getpd_name(list2.get(0).getPd_id());
-            int total=0;
+            List<OrderPd>list2=shopService.getOrderPD(list.get(i).getMerchant_uid());
+
             for(int j=0;j<list2.size();j++){
-                list2.get(j).setPd_name(shopService.getpd_name(list2.get(j).getPd_id()));
+                list2.get(j).setPd_name(shopService.getProductNameByID(list2.get(j).getPd_id()));
                 list2.get(j).setPrice(userService.getprice(list2.get(j).getPd_id()));
+                list2.get(j).setKr_price(userService.calculKr(userService.getprice(list2.get(j).getPd_id())));
             }
-            for(int j=0;j<list2.size();j++){
-                total+=list2.get(0).getPd_count();
-                list.get(i).setMerchant_count(total);
-            }
+
+            String pd_name=shopService.getProductNameByID(list2.get(0).getPd_id());
             list.get(i).setPdlist(list2);
-            if(list2.size()==1){
-                String nameex=pd_name;
-                list.get(i).setPd_nameex(nameex);
-            } else {
-                String nameex=pd_name +" 외 ("+(list2.size()-1)+")"+"건";
-                list.get(i).setPd_nameex(nameex);
-            }
 
-        }
-
-
-        model.addAttribute("list",list);
-        model.addAttribute("orderdate",orderdate);
-
-        return "orderlist";
-
-
-    }
-
-
-    @PostMapping("/orderlistSearch")
-    public String orderlistsearch(@RequestParam("page")int page,@RequestParam("orderdate")String orderdate,Model model){
-        int totalprice=0;
-        int totalcnt=0;
-        Long loginid = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        try{
-
-            model.addAttribute("islogin",loginid);
-
-            List<Cart> cartList=shopService.showCart2(loginid);
-
-            for(int i=0;i<cartList.size();i++){
-                Product product=shopService.showCart1(cartList.get(i).getId());
-                totalprice+=cartList.get(i).getPd_count()*(product.getPd_price()-(product.getPd_price()*product.getPd_sale_percent()/100));
-                totalcnt+=cartList.get(i).getPd_count();
-
-            }
-
-
-
-        } catch (Exception e){
-
-        }
-
-        model.addAttribute("totalprice",totalprice);
-        model.addAttribute("totalcnt",totalcnt);
-        int pageSize = 4;
-        int startIndex = (page-1) * pageSize;
-
-        List<OrderList>list=userService.getOrderSearch(loginid,orderdate,startIndex,pageSize);
-        int totalListCnt=userService.getOrderSearchct(loginid,orderdate);
-        if(totalListCnt<5){
-            model.addAttribute("n",1);
-        } else if (totalListCnt>=5) {
-            double howmanyPage=(double)totalListCnt/4;
-            int totalpage=(int)Math.ceil(howmanyPage);
-            model.addAttribute("n",totalpage);
-        }
-
-        for(int i=0;i<list.size();i++){
-
-            List<OrderPd>list2=shopService.getorderPd(list.get(i).getMerchant_uid());
-            String pd_name=shopService.getpd_name(list2.get(0).getPd_id());
             int total=0;
-            for(int j=0;j<list2.size();j++){
-                list2.get(j).setPd_name(shopService.getpd_name(list2.get(j).getPd_id()));
-                list2.get(j).setPrice(userService.getprice(list2.get(j).getPd_id()));
-            }
 
-            list.get(i).setPdlist(list2);
             for(int j=0;j<list2.size();j++){
 
                 total+=list2.get(0).getPd_count();
@@ -349,23 +283,22 @@ public class UserController {
 
 
         model.addAttribute("list",list);
-        model.addAttribute("orderdate",orderdate);
 
         return "orderlist";
+
+
     }
+
 
     @PostMapping("/orderlist/checkpd")
     public ResponseEntity<List<String>> yourControllerMethod(@RequestParam String uid) {
 
 
-        System.out.println("-==================");
-        System.out.println(uid);
-
-        List<OrderPd>list=shopService.getorderPd(uid);
+        List<OrderPd>list=shopService.getOrderPD(uid);
         List<String> data = new ArrayList<>();
         for(int i=0;i<list.size();i++){
 
-            data.add(shopService.getpd_name(list.get(i).getPd_id()));
+            data.add(shopService.getProductNameByID(list.get(i).getPd_id()));
 
         }
 
@@ -408,62 +341,40 @@ public class UserController {
 
     @GetMapping("/userInfo")
     public String userInfo(Model model){
-        Long id = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("islogin",id);
 
-        return "usercheck";
-    }
+        Long loginid = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("islogin",loginid);
 
+        List<Cart> cartList=shopService.getCartListByUserID(loginid);
+        int totalPrice=0;
+        int totalCnt=0;
 
-    @PostMapping("/userCheck")
-    public String userInfo2(@RequestParam("userid") String userid,@RequestParam("password") String pw ,Model model){
+        for(int i=0;i<cartList.size();i++){
+            Product product=shopService.getProductByCartID(cartList.get(i).getId());
+            totalPrice+=cartList.get(i).getPd_count()*(product.getPd_price()-(product.getPd_price()*product.getPd_sale_percent()/100));
+            totalCnt+=cartList.get(i).getPd_count();
 
-            Long loginid = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            model.addAttribute("islogin",loginid);
-
-
-        String realid=userService.getUseridWithLoginid(loginid);
-        String realpw=userService.getUserpwWithLoginid(loginid);
-
-
-        if(realid.equals(userid)&&realpw.equals(pw)){
-            model.addAttribute("isok",1);
-            return "userSuccess";
-
-        } else {
-            model.addAttribute("error", "*아이디, 혹은 패스워드가 일치하지 않습니다.");
-            model.addAttribute("iserror", 1);
-            return "usercheck";
         }
-
+        UserVo userInfo=shopService.getUserInfo(loginid);
+        userInfo.setPassword("proctectedpwd");
+        model.addAttribute("userDto",userInfo);
+        model.addAttribute("totalPrice",shopService.calKrPrice(totalPrice));
+        model.addAttribute("totalCnt",totalCnt);
+        return "userinfo";
     }
 
-@GetMapping("/userinfook")
-public String seeuserinfo(Model model){
-    int totalprice=0;
-    int totalcnt=0;
 
-    Long loginid = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    model.addAttribute("islogin",loginid);
+    @PostMapping("/passwordCh")
+    public String changePwd(@RequestParam("mPwd") String pw, Model model){
+        Long loginid = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("updateaddr",1);
+        userService.updatepwd(pw,loginid);
 
-    List<Cart> cartList=shopService.showCart2(loginid);
-
-    for(int i=0;i<cartList.size();i++){
-        Product product=shopService.showCart1(cartList.get(i).getId());
-        totalprice+=cartList.get(i).getPd_count()*(product.getPd_price()-(product.getPd_price()*product.getPd_sale_percent()/100));
-        totalcnt+=cartList.get(i).getPd_count();
-
+        return "userSuccess";
     }
-    UserVo userInfo=shopService.getUserInfo(loginid);
 
-    userInfo.setPassword("Protected password");
-    model.addAttribute("userDto",userInfo);
-    model.addAttribute("totalprice",totalprice);
-    model.addAttribute("totalcnt",totalcnt);
 
-    return "userInfo";
 
-}
 
     @PostMapping("/updateDefaultAdd" )
     public String updateAddr(@RequestParam("addr")String addr,@RequestParam("zip_code") int postcode,@RequestParam("addr_dtl") String addr_dtl,Model model){
