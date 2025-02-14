@@ -75,6 +75,8 @@ public class MainController {
         model.addAttribute("ratingList",ratingList);
         model.addAttribute("bestList",bestList);
 
+        //test
+
 
         return "mainPage";
     }
