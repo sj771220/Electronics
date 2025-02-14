@@ -1,0 +1,904 @@
+2025-02-14 02:41:58.605 INFO  [restartedMain] [com.example.shop.ShopApplication] - Starting ShopApplication using Java 1.8.0_412 on DESKTOP-N4C3HJ0 with PID 22304 (C:\git\Electronics\out\production\classes started by sj771 in C:\git\Electronics)
+2025-02-14 02:41:58.606 INFO  [restartedMain] [com.example.shop.ShopApplication] - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:41:58.637 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-14 02:41:58.637 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-14 02:41:59.441 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2025-02-14 02:41:59.446 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-14 02:41:59.447 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2025-02-14 02:41:59.447 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2025-02-14 02:41:59.487 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2025-02-14 02:41:59.487 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 850 ms
+2025-02-14 02:41:59.980 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/login']
+2025-02-14 02:41:59.985 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/letsignup']
+2025-02-14 02:41:59.985 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/main']
+2025-02-14 02:41:59.985 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/shop/**']
+2025-02-14 02:41:59.985 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/category/**']
+2025-02-14 02:41:59.985 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/single/**']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/searchResult']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/css/**']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/js/**']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/img/**']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/checkpd']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/search/**']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/signup']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/checkid']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/checkmail']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/mypageSearch']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/checktel']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/signupre']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/modalcheck']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/updateDefaultAdd']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [permitAll] for Ant [pattern='/passwordCh']
+2025-02-14 02:41:59.986 DEBUG [restartedMain] [o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource] - Adding web access control expression [authenticated] for any request
+2025-02-14 02:41:59.990 INFO  [restartedMain] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2f8231ed, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3be02a9d, org.springframework.security.web.context.SecurityContextPersistenceFilter@14f05e8e, org.springframework.security.web.header.HeaderWriterFilter@2fd7c163, org.springframework.web.filter.CorsFilter@67fc27a5, org.springframework.security.web.authentication.logout.LogoutFilter@56bc4c63, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@19a7d2b6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ac77af9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13dbeff8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37ffc00, org.springframework.security.web.session.SessionManagementFilter@6c0d3cf7, org.springframework.security.web.access.ExceptionTranslationFilter@2d1efa0f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5efd4d0]
+2025-02-14 02:42:00.124 WARN  [restartedMain] [org.thymeleaf.templatemode.TemplateMode] - [THYMELEAF][restartedMain] Unknown Template Mode 'HTMLs'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2025-02-14 02:42:00.203 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2025-02-14 02:42:00.214 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-14 02:42:00.223 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2025-02-14 02:42:00.230 INFO  [restartedMain] [com.example.shop.ShopApplication] - Started ShopApplication in 1.914 seconds (JVM running for 2.945)
+2025-02-14 02:42:07.719 INFO  [http-nio-8080-exec-2] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-14 02:42:07.719 INFO  [http-nio-8080-exec-2] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2025-02-14 02:42:07.720 INFO  [http-nio-8080-exec-2] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2025-02-14 02:42:07.726 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing GET /
+2025-02-14 02:42:07.730 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:07.733 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:07.737 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /] with attributes [permitAll]
+2025-02-14 02:42:07.737 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Secured GET /
+2025-02-14 02:42:07.753 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:07.754 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:07.754 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:07.758 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Securing GET /main
+2025-02-14 02:42:07.758 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:07.758 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:07.758 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /main] with attributes [permitAll]
+2025-02-14 02:42:07.758 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Secured GET /main
+2025-02-14 02:42:07.762 ERROR [http-nio-8080-exec-1] [com.example.shop.etc.ScheduleUtil] - java.lang.String cannot be cast to java.lang.Long
+2025-02-14 02:42:07.776 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2025-02-14 02:42:08.063 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2025-02-14 02:42:08.287 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.307 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Securing GET /css/style.css
+2025-02-14 02:42:08.307 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing GET /css/owl.carousel.css
+2025-02-14 02:42:08.307 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Securing GET /css/responsive.css
+2025-02-14 02:42:08.307 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.307 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.307 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.307 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.307 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.307 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.308 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/responsive.css] with attributes [permitAll]
+2025-02-14 02:42:08.308 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/style.css] with attributes [permitAll]
+2025-02-14 02:42:08.308 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/owl.carousel.css] with attributes [permitAll]
+2025-02-14 02:42:08.308 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Secured GET /css/responsive.css
+2025-02-14 02:42:08.308 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Secured GET /css/style.css
+2025-02-14 02:42:08.308 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured GET /css/owl.carousel.css
+2025-02-14 02:42:08.327 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.327 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.327 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.328 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.328 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.328 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.328 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.328 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.328 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.374 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.374 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.502 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /img/product17.png
+2025-02-14 02:42:08.502 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.502 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.502 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Securing GET /img/product12.png
+2025-02-14 02:42:08.502 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product17.png] with attributes [permitAll]
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /img/product17.png
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product12.png] with attributes [permitAll]
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Secured GET /img/product12.png
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /img/product18.png
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /img/product10.png
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product18.png] with attributes [permitAll]
+2025-02-14 02:42:08.503 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /img/product18.png
+2025-02-14 02:42:08.504 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product10.png] with attributes [permitAll]
+2025-02-14 02:42:08.504 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /img/product10.png
+2025-02-14 02:42:08.504 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Securing GET /img/product15.png
+2025-02-14 02:42:08.504 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.504 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.504 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product15.png] with attributes [permitAll]
+2025-02-14 02:42:08.504 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Secured GET /img/product15.png
+2025-02-14 02:42:08.505 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing GET /img/services_logo__1.jpg
+2025-02-14 02:42:08.505 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.505 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.505 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/services_logo__1.jpg] with attributes [permitAll]
+2025-02-14 02:42:08.505 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Secured GET /img/services_logo__1.jpg
+2025-02-14 02:42:08.507 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.507 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.507 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.507 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.508 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.508 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.508 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.508 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.508 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.509 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.509 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.509 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.509 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.510 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Securing GET /js/owl.carousel.min.js
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.sticky.js
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/owl.carousel.min.js] with attributes [permitAll]
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.easing.1.3.min.js] with attributes [permitAll]
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Secured GET /js/owl.carousel.min.js
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.512 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:42:08.513 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.sticky.js] with attributes [permitAll]
+2025-02-14 02:42:08.513 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.sticky.js
+2025-02-14 02:42:08.513 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Securing GET /img/samsung.jpg
+2025-02-14 02:42:08.513 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.513 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.514 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/samsung.jpg] with attributes [permitAll]
+2025-02-14 02:42:08.514 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /img/apple.png
+2025-02-14 02:42:08.514 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Secured GET /img/samsung.jpg
+2025-02-14 02:42:08.514 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.514 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.514 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/apple.png] with attributes [permitAll]
+2025-02-14 02:42:08.514 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /img/apple.png
+2025-02-14 02:42:08.515 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /js/main.js
+2025-02-14 02:42:08.515 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.515 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.515 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/main.js] with attributes [permitAll]
+2025-02-14 02:42:08.515 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /js/main.js
+2025-02-14 02:42:08.517 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.517 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.517 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.517 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.519 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.519 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /img/lg.png
+2025-02-14 02:42:08.519 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.519 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.519 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.520 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing GET /img/product8.png
+2025-02-14 02:42:08.520 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/lg.png] with attributes [permitAll]
+2025-02-14 02:42:08.520 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.520 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /img/lg.png
+2025-02-14 02:42:08.520 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.520 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product8.png] with attributes [permitAll]
+2025-02-14 02:42:08.520 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Secured GET /img/product8.png
+2025-02-14 02:42:08.522 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.522 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.522 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.522 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.524 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.524 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.524 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Securing GET /img/slide-1.jpg
+2025-02-14 02:42:08.524 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.524 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.525 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/slide-1.jpg] with attributes [permitAll]
+2025-02-14 02:42:08.525 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Secured GET /img/slide-1.jpg
+2025-02-14 02:42:08.526 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.527 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.527 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.533 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.533 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.533 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.534 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.535 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.535 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.545 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.547 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.547 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.549 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.551 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.551 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Securing GET /img/product12.png
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /img/product10.png
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Securing GET /img/product17.png
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /img/product18.png
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing GET /img/product15.png
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product12.png] with attributes [permitAll]
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product18.png] with attributes [permitAll]
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product15.png] with attributes [permitAll]
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product17.png] with attributes [permitAll]
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Secured GET /img/product12.png
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /img/product18.png
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product10.png] with attributes [permitAll]
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Secured GET /img/product15.png
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Secured GET /img/product17.png
+2025-02-14 02:42:08.588 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /img/product10.png
+2025-02-14 02:42:08.590 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.590 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.590 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.590 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.590 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.590 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.590 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.590 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.591 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.591 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.591 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.591 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.591 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.591 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.591 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing GET /img/apple.png
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Securing GET /img/services_logo__1.jpg
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Securing GET /img/samsung.jpg
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /img/lg.png
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/lg.png] with attributes [permitAll]
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/samsung.jpg] with attributes [permitAll]
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/apple.png] with attributes [permitAll]
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/services_logo__1.jpg] with attributes [permitAll]
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured GET /img/apple.png
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /img/lg.png
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Secured GET /img/samsung.jpg
+2025-02-14 02:42:08.599 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Secured GET /img/services_logo__1.jpg
+2025-02-14 02:42:08.601 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.601 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.601 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.601 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.601 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.601 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.601 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.601 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.601 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.601 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.601 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.601 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.695 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Securing GET /favicon.ico
+2025-02-14 02:42:08.695 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.695 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.695 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.i.FilterSecurityInterceptor] - Failed to authorize filter invocation [GET /favicon.ico] with attributes [authenticated]
+2025-02-14 02:42:08.698 DEBUG [http-nio-8080-exec-4] [o.s.security.web.DefaultRedirectStrategy] - Redirecting to http://localhost:8080/login
+2025-02-14 02:42:08.698 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store empty SecurityContext
+2025-02-14 02:42:08.698 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store empty SecurityContext
+2025-02-14 02:42:08.698 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:08.702 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Securing GET /login
+2025-02-14 02:42:08.702 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:08.702 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:08.702 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /login] with attributes [permitAll]
+2025-02-14 02:42:08.702 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Secured GET /login
+2025-02-14 02:42:08.723 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.725 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:08.725 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:14.137 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /login
+2025-02-14 02:42:14.137 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:14.137 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:14.138 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /login] with attributes [permitAll]
+2025-02-14 02:42:14.138 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /login
+2025-02-14 02:42:14.141 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.141 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.142 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /css/style.css
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /js/owl.carousel.min.js
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing GET /css/owl.carousel.css
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Securing GET /css/responsive.css
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.sticky.js
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/responsive.css] with attributes [permitAll]
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/owl.carousel.css] with attributes [permitAll]
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/style.css] with attributes [permitAll]
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.easing.1.3.min.js] with attributes [permitAll]
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.sticky.js] with attributes [permitAll]
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /css/style.css
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.sticky.js
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/owl.carousel.min.js] with attributes [permitAll]
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Secured GET /css/responsive.css
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Secured GET /css/owl.carousel.css
+2025-02-14 02:42:14.155 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /js/owl.carousel.min.js
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.156 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:14.159 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Securing GET /js/main.js
+2025-02-14 02:42:14.159 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:14.159 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:14.159 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/main.js] with attributes [permitAll]
+2025-02-14 02:42:14.159 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Secured GET /js/main.js
+2025-02-14 02:42:14.160 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.160 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.160 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:14.173 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Securing GET /img/crossword.png
+2025-02-14 02:42:14.173 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:14.173 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:14.173 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/crossword.png] with attributes [permitAll]
+2025-02-14 02:42:14.173 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Secured GET /img/crossword.png
+2025-02-14 02:42:14.175 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.175 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.175 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:14.195 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Securing GET /favicon.ico
+2025-02-14 02:42:14.195 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:14.195 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:14.195 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.i.FilterSecurityInterceptor] - Failed to authorize filter invocation [GET /favicon.ico] with attributes [authenticated]
+2025-02-14 02:42:14.195 DEBUG [http-nio-8080-exec-1] [o.s.security.web.DefaultRedirectStrategy] - Redirecting to http://localhost:8080/login
+2025-02-14 02:42:14.196 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store empty SecurityContext
+2025-02-14 02:42:14.196 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store empty SecurityContext
+2025-02-14 02:42:14.196 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:14.198 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /login
+2025-02-14 02:42:14.198 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:14.198 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:14.198 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /login] with attributes [permitAll]
+2025-02-14 02:42:14.198 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /login
+2025-02-14 02:42:14.201 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.202 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:14.202 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:19.022 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Securing POST /auth
+2025-02-14 02:42:19.022 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:19.050 DEBUG [http-nio-8080-exec-7] [o.s.security.web.DefaultRedirectStrategy] - Redirecting to /login?error
+2025-02-14 02:42:19.050 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store empty SecurityContext
+2025-02-14 02:42:19.050 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store empty SecurityContext
+2025-02-14 02:42:19.050 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:19.054 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing GET /login?error
+2025-02-14 02:42:19.054 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:19.054 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:19.054 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /login?error] with attributes [permitAll]
+2025-02-14 02:42:19.054 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured GET /login?error
+2025-02-14 02:42:19.057 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.058 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.058 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Securing GET /css/owl.carousel.css
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /css/responsive.css
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.sticky.js
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /js/owl.carousel.min.js
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing GET /css/style.css
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/responsive.css] with attributes [permitAll]
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.easing.1.3.min.js] with attributes [permitAll]
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/owl.carousel.css] with attributes [permitAll]
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.sticky.js] with attributes [permitAll]
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /css/responsive.css
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/owl.carousel.min.js] with attributes [permitAll]
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/style.css] with attributes [permitAll]
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Secured GET /css/owl.carousel.css
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.sticky.js
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /js/owl.carousel.min.js
+2025-02-14 02:42:19.075 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Secured GET /css/style.css
+2025-02-14 02:42:19.076 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.076 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.076 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.076 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.078 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:19.079 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Securing GET /js/main.js
+2025-02-14 02:42:19.079 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:19.079 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:19.079 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/main.js] with attributes [permitAll]
+2025-02-14 02:42:19.079 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Secured GET /js/main.js
+2025-02-14 02:42:19.080 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.080 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.080 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:19.105 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /img/crossword.png
+2025-02-14 02:42:19.105 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:19.105 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:19.105 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/crossword.png] with attributes [permitAll]
+2025-02-14 02:42:19.105 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /img/crossword.png
+2025-02-14 02:42:19.106 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.107 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.107 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:19.120 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Securing GET /favicon.ico
+2025-02-14 02:42:19.120 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:19.120 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:19.121 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.i.FilterSecurityInterceptor] - Failed to authorize filter invocation [GET /favicon.ico] with attributes [authenticated]
+2025-02-14 02:42:19.121 DEBUG [http-nio-8080-exec-7] [o.s.security.web.DefaultRedirectStrategy] - Redirecting to http://localhost:8080/login
+2025-02-14 02:42:19.121 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store empty SecurityContext
+2025-02-14 02:42:19.121 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store empty SecurityContext
+2025-02-14 02:42:19.121 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:19.303 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing GET /login
+2025-02-14 02:42:19.303 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:19.303 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.AnonymousAuthenticationFilter] - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-14 02:42:19.303 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /login] with attributes [permitAll]
+2025-02-14 02:42:19.303 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured GET /login
+2025-02-14 02:42:19.306 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.306 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Did not store anonymous SecurityContext
+2025-02-14 02:42:19.306 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.342 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing POST /auth
+2025-02-14 02:42:22.342 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to empty SecurityContext
+2025-02-14 02:42:22.359 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy] - Changed session id from ADE784A6B8547ECE74417D9C27B2384F
+2025-02-14 02:42:22.360 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.UsernamePasswordAuthenticationFilter] - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]
+2025-02-14 02:42:22.360 DEBUG [http-nio-8080-exec-2] [o.s.security.web.DefaultRedirectStrategy] - Redirecting to /main
+2025-02-14 02:42:22.360 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@9cef60e]
+2025-02-14 02:42:22.360 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@9cef60e]
+2025-02-14 02:42:22.360 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.363 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Securing GET /main
+2025-02-14 02:42:22.363 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.363 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.363 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /main] with attributes [permitAll]
+2025-02-14 02:42:22.363 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Secured GET /main
+2025-02-14 02:42:22.435 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /css/style.css
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Securing GET /css/owl.carousel.css
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Securing GET /img/product12.png
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /img/product15.png
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Securing GET /img/product17.png
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /css/responsive.css
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.776 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.777 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product15.png] with attributes [permitAll]
+2025-02-14 02:42:22.777 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/style.css] with attributes [permitAll]
+2025-02-14 02:42:22.777 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product17.png] with attributes [permitAll]
+2025-02-14 02:42:22.777 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /img/product15.png
+2025-02-14 02:42:22.777 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/responsive.css] with attributes [permitAll]
+2025-02-14 02:42:22.777 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /css/style.css
+2025-02-14 02:42:22.777 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/owl.carousel.css] with attributes [permitAll]
+2025-02-14 02:42:22.777 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product12.png] with attributes [permitAll]
+2025-02-14 02:42:22.777 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Secured GET /img/product17.png
+2025-02-14 02:42:22.777 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /css/responsive.css
+2025-02-14 02:42:22.777 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Secured GET /css/owl.carousel.css
+2025-02-14 02:42:22.777 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Secured GET /img/product12.png
+2025-02-14 02:42:22.779 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.779 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.779 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.780 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.780 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.781 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Securing GET /img/product18.png
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing GET /img/product10.png
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing GET /js/owl.carousel.min.js
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.sticky.js
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /js/main.js
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/owl.carousel.min.js] with attributes [permitAll]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Secured GET /js/owl.carousel.min.js
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product18.png] with attributes [permitAll]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/main.js] with attributes [permitAll]
+2025-02-14 02:42:22.783 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.sticky.js] with attributes [permitAll]
+2025-02-14 02:42:22.784 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.easing.1.3.min.js] with attributes [permitAll]
+2025-02-14 02:42:22.784 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Secured GET /img/product18.png
+2025-02-14 02:42:22.784 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:42:22.784 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /js/main.js
+2025-02-14 02:42:22.784 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.sticky.js
+2025-02-14 02:42:22.784 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product10.png] with attributes [permitAll]
+2025-02-14 02:42:22.784 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured GET /img/product10.png
+2025-02-14 02:42:22.786 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.786 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.786 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.786 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.786 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.787 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.788 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Securing GET /img/services_logo__1.jpg
+2025-02-14 02:42:22.788 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.788 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.789 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/services_logo__1.jpg] with attributes [permitAll]
+2025-02-14 02:42:22.789 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Secured GET /img/services_logo__1.jpg
+2025-02-14 02:42:22.789 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Securing GET /img/samsung.jpg
+2025-02-14 02:42:22.789 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.789 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.789 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/samsung.jpg] with attributes [permitAll]
+2025-02-14 02:42:22.789 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Secured GET /img/samsung.jpg
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /img/apple.png
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Securing GET /img/lg.png
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /img/product8.png
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/lg.png] with attributes [permitAll]
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/apple.png] with attributes [permitAll]
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Secured GET /img/lg.png
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /img/apple.png
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product8.png] with attributes [permitAll]
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /img/product8.png
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /img/slide-1.jpg
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/slide-1.jpg] with attributes [permitAll]
+2025-02-14 02:42:22.790 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /img/slide-1.jpg
+2025-02-14 02:42:22.792 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.792 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.792 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.792 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.793 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.793 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing GET /img/product10.png
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Securing GET /img/product12.png
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing GET /img/product17.png
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Securing GET /img/product15.png
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Securing GET /img/product18.png
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product15.png] with attributes [permitAll]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product18.png] with attributes [permitAll]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product12.png] with attributes [permitAll]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product17.png] with attributes [permitAll]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Secured GET /img/product18.png
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Secured GET /img/product12.png
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Secured GET /img/product15.png
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured GET /img/product17.png
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product10.png] with attributes [permitAll]
+2025-02-14 02:42:22.817 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Secured GET /img/product10.png
+2025-02-14 02:42:22.821 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.821 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.821 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.822 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.823 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.826 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /img/apple.png
+2025-02-14 02:42:22.826 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Securing GET /img/lg.png
+2025-02-14 02:42:22.826 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /img/samsung.jpg
+2025-02-14 02:42:22.826 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Securing GET /img/services_logo__1.jpg
+2025-02-14 02:42:22.826 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.826 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.826 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.826 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.826 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.826 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.826 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.826 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.827 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/samsung.jpg] with attributes [permitAll]
+2025-02-14 02:42:22.827 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/apple.png] with attributes [permitAll]
+2025-02-14 02:42:22.827 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/services_logo__1.jpg] with attributes [permitAll]
+2025-02-14 02:42:22.827 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/lg.png] with attributes [permitAll]
+2025-02-14 02:42:22.827 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /img/samsung.jpg
+2025-02-14 02:42:22.827 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /img/apple.png
+2025-02-14 02:42:22.827 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Secured GET /img/lg.png
+2025-02-14 02:42:22.827 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Secured GET /img/services_logo__1.jpg
+2025-02-14 02:42:22.828 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.828 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.829 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.829 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.839 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /favicon.ico
+2025-02-14 02:42:22.839 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.839 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.840 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /favicon.ico] with attributes [authenticated]
+2025-02-14 02:42:22.840 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /favicon.ico
+2025-02-14 02:42:22.841 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:22.843 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /error
+2025-02-14 02:42:22.843 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.843 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:22.843 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /error
+2025-02-14 02:42:22.894 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.065 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing GET /cart
+2025-02-14 02:42:24.066 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.066 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.066 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /cart] with attributes [authenticated]
+2025-02-14 02:42:24.066 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured GET /cart
+2025-02-14 02:42:24.130 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing GET /css/style.css
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Securing GET /css/responsive.css
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Securing GET /css/owl.carousel.css
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Securing GET /img/product18.png
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/owl.carousel.css] with attributes [permitAll]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/responsive.css] with attributes [permitAll]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/style.css] with attributes [permitAll]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Secured GET /css/responsive.css
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Secured GET /css/owl.carousel.css
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Securing GET /img/product8.png
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Secured GET /css/style.css
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /img/product17.png
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product18.png] with attributes [permitAll]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Secured GET /img/product18.png
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product8.png] with attributes [permitAll]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Secured GET /img/product8.png
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product17.png] with attributes [permitAll]
+2025-02-14 02:42:24.135 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /img/product17.png
+2025-02-14 02:42:24.137 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.138 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.138 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.138 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.138 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.138 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.140 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /js/owl.carousel.min.js
+2025-02-14 02:42:24.140 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.140 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.140 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/owl.carousel.min.js] with attributes [permitAll]
+2025-02-14 02:42:24.140 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.sticky.js
+2025-02-14 02:42:24.140 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /js/owl.carousel.min.js
+2025-02-14 02:42:24.140 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.140 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.sticky.js] with attributes [permitAll]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.sticky.js
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Securing GET /img/product26.png
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.easing.1.3.min.js] with attributes [permitAll]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing GET /img/product19.png
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing GET /js/main.js
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product26.png] with attributes [permitAll]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Secured GET /img/product26.png
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product19.png] with attributes [permitAll]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/main.js] with attributes [permitAll]
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Secured GET /img/product19.png
+2025-02-14 02:42:24.141 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured GET /js/main.js
+2025-02-14 02:42:24.142 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.142 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.143 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.143 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.144 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.145 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:24.148 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Securing GET /img/crossword.png
+2025-02-14 02:42:24.148 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.148 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:24.148 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/crossword.png] with attributes [permitAll]
+2025-02-14 02:42:24.148 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Secured GET /img/crossword.png
+2025-02-14 02:42:24.150 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.467 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /checkout?
+2025-02-14 02:42:25.467 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.467 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.467 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /checkout?] with attributes [authenticated]
+2025-02-14 02:42:25.467 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /checkout?
+2025-02-14 02:42:25.556 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.572 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Securing GET /css/owl.carousel.css
+2025-02-14 02:42:25.572 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Securing GET /css/style.css
+2025-02-14 02:42:25.572 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /css/responsive.css
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Securing GET /img/product18.png
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing GET /img/product8.png
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/responsive.css] with attributes [permitAll]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product8.png] with attributes [permitAll]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/owl.carousel.css] with attributes [permitAll]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/style.css] with attributes [permitAll]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product18.png] with attributes [permitAll]
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured GET /img/product8.png
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /css/responsive.css
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Secured GET /img/product18.png
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Secured GET /css/owl.carousel.css
+2025-02-14 02:42:25.573 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Secured GET /css/style.css
+2025-02-14 02:42:25.575 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.575 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.575 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.577 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.577 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.579 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /img/product17.png
+2025-02-14 02:42:25.579 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Securing GET /img/product19.png
+2025-02-14 02:42:25.579 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.579 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.579 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.579 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.579 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product19.png] with attributes [permitAll]
+2025-02-14 02:42:25.579 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product17.png] with attributes [permitAll]
+2025-02-14 02:42:25.579 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Secured GET /img/product19.png
+2025-02-14 02:42:25.579 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /img/product17.png
+2025-02-14 02:42:25.581 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.581 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.584 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing GET /img/product26.png
+2025-02-14 02:42:25.584 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.584 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.584 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/product26.png] with attributes [permitAll]
+2025-02-14 02:42:25.584 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Secured GET /img/product26.png
+2025-02-14 02:42:25.586 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.588 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Securing GET /js/owl.carousel.min.js
+2025-02-14 02:42:25.588 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.588 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.588 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.sticky.js
+2025-02-14 02:42:25.588 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.588 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.588 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/owl.carousel.min.js] with attributes [permitAll]
+2025-02-14 02:42:25.588 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Secured GET /js/owl.carousel.min.js
+2025-02-14 02:42:25.588 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.sticky.js] with attributes [permitAll]
+2025-02-14 02:42:25.588 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.sticky.js
+2025-02-14 02:42:25.589 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.589 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.605 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:42:25.605 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Securing GET /js/main.js
+2025-02-14 02:42:25.606 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.606 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.606 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.606 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.606 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.easing.1.3.min.js] with attributes [permitAll]
+2025-02-14 02:42:25.606 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/main.js] with attributes [permitAll]
+2025-02-14 02:42:25.606 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:42:25.606 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Secured GET /js/main.js
+2025-02-14 02:42:25.608 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.608 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.613 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Securing GET /img/카카오페이.png
+2025-02-14 02:42:25.613 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.613 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.613 DEBUG [http-nio-8080-exec-1] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/카카오페이.png] with attributes [permitAll]
+2025-02-14 02:42:25.613 DEBUG [http-nio-8080-exec-1] [o.s.security.web.FilterChainProxy] - Secured GET /img/카카오페이.png
+2025-02-14 02:42:25.616 DEBUG [http-nio-8080-exec-1] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:25.789 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Securing GET /img/crossword.png
+2025-02-14 02:42:25.789 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.789 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:25.789 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/crossword.png] with attributes [permitAll]
+2025-02-14 02:42:25.789 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Secured GET /img/crossword.png
+2025-02-14 02:42:25.791 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:42:49.352 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing POST /PaymentCheck
+2025-02-14 02:42:49.352 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:49.352 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:42:49.352 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [POST /PaymentCheck] with attributes [authenticated]
+2025-02-14 02:42:49.352 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured POST /PaymentCheck
+2025-02-14 02:42:57.791 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:43:02.085 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Securing GET /orderlist/1
+2025-02-14 02:43:02.085 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.085 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.085 DEBUG [http-nio-8080-exec-6] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /orderlist/1] with attributes [authenticated]
+2025-02-14 02:43:02.085 DEBUG [http-nio-8080-exec-6] [o.s.security.web.FilterChainProxy] - Secured GET /orderlist/1
+2025-02-14 02:43:02.433 DEBUG [http-nio-8080-exec-6] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Securing GET /css/owl.carousel.css
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Securing GET /css/style.css
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Securing GET /css/rating.css
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Securing GET /css/responsive.css
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-4] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/owl.carousel.css] with attributes [permitAll]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-9] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/rating.css] with attributes [permitAll]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-2] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/style.css] with attributes [permitAll]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-9] [o.s.security.web.FilterChainProxy] - Secured GET /css/rating.css
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-7] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /css/responsive.css] with attributes [permitAll]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-4] [o.s.security.web.FilterChainProxy] - Secured GET /css/owl.carousel.css
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-7] [o.s.security.web.FilterChainProxy] - Secured GET /css/responsive.css
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-2] [o.s.security.web.FilterChainProxy] - Secured GET /css/style.css
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Securing GET /js/owl.carousel.min.js
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-8] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/owl.carousel.min.js] with attributes [permitAll]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-8] [o.s.security.web.FilterChainProxy] - Secured GET /js/owl.carousel.min.js
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.sticky.js
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.sticky.js] with attributes [permitAll]
+2025-02-14 02:43:02.437 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.sticky.js
+2025-02-14 02:43:02.439 DEBUG [http-nio-8080-exec-4] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:43:02.439 DEBUG [http-nio-8080-exec-2] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:43:02.439 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:43:02.439 DEBUG [http-nio-8080-exec-8] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:43:02.439 DEBUG [http-nio-8080-exec-7] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:43:02.439 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Securing GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:43:02.439 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.439 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.440 DEBUG [http-nio-8080-exec-10] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/jquery.easing.1.3.min.js] with attributes [permitAll]
+2025-02-14 02:43:02.440 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Securing GET /js/main.js
+2025-02-14 02:43:02.440 DEBUG [http-nio-8080-exec-10] [o.s.security.web.FilterChainProxy] - Secured GET /js/jquery.easing.1.3.min.js
+2025-02-14 02:43:02.440 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.440 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.440 DEBUG [http-nio-8080-exec-5] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /js/main.js] with attributes [permitAll]
+2025-02-14 02:43:02.440 DEBUG [http-nio-8080-exec-5] [o.s.security.web.FilterChainProxy] - Secured GET /js/main.js
+2025-02-14 02:43:02.441 DEBUG [http-nio-8080-exec-10] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:43:02.441 DEBUG [http-nio-8080-exec-5] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:43:02.444 DEBUG [http-nio-8080-exec-9] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:43:02.454 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Securing GET /img/crossword.png
+2025-02-14 02:43:02.455 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.HttpSessionSecurityContextRepository] - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.455 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=1, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ADE784A6B8547ECE74417D9C27B2384F], Granted Authorities=[ROLE_USER]]]
+2025-02-14 02:43:02.455 DEBUG [http-nio-8080-exec-3] [o.s.s.w.a.i.FilterSecurityInterceptor] - Authorized filter invocation [GET /img/crossword.png] with attributes [permitAll]
+2025-02-14 02:43:02.455 DEBUG [http-nio-8080-exec-3] [o.s.security.web.FilterChainProxy] - Secured GET /img/crossword.png
+2025-02-14 02:43:02.456 DEBUG [http-nio-8080-exec-3] [o.s.s.w.c.SecurityContextPersistenceFilter] - Cleared SecurityContextHolder to complete request
+2025-02-14 02:51:37.579 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2025-02-14 02:51:37.584 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
